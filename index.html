@@ -19,8 +19,8 @@
   @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Heavy.ttf') format('truetype'); font-weight: 800; font-display: swap; }
   @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #F4F1EC; color: #141713; font-family: 'Sunset Gothic Pro', system-ui, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; text-wrap: pretty; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; max-width: 100%; }
+  body { margin: 0; background: #F4F1EC; color: #141713; font-family: 'Sunset Gothic Pro', system-ui, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; text-wrap: pretty; overflow-x: hidden; overflow-x: clip; max-width: 100%; position: relative; touch-action: pan-y pinch-zoom; }
   img { display: block; max-width: 100%; }
   a { color: #141713; text-decoration: none; }
   a:hover { color: #12554F; }
@@ -151,7 +151,7 @@
         <a href="#" onClick="{{ goHistoire }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border-bottom:2px solid #C3A15A;padding-bottom:8px;transition:color .3s" style-hover="color:#12554F">Notre savoir-faire</a>
       </div>
       <div style="flex:1 1 380px;order:1;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
-        <img src="img/fumage1.webp" alt="Le fumoir des Acacias, filets suspendus" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px" />
+        <img src="img/fumage5.webp" alt="Claude accroche les filets dans le fumoir des Acacias" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px" />
       </div>
     </div>
   </section>
@@ -412,7 +412,7 @@
       <sc-for list="{{ recipes }}" as="r" hint-placeholder-count="4">
         <article style="display:flex;flex-direction:column;background:#FDFBF6;border-radius:6px;overflow:hidden;border:1px solid rgba(20,23,19,.14);animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 22%">
           <div style="aspect-ratio:3/2;background:{{ r.bg }};overflow:hidden">
-            <img src="img/degustation.webp" alt="{{ r.titre }}" style="width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+            <img src="{{ r.photo }}" alt="{{ r.titre }}" style="width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
           </div>
           <div style="padding:clamp(20px,2.2vw,30px);display:flex;flex-direction:column;gap:14px;flex:1">
             <div style="display:flex;gap:12px;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12554F">
@@ -442,18 +442,18 @@
     <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(26px,4vw,68px);align-items:flex-start">
       <div style="flex:1 1 320px;animation:rise 1s both">
         <div style="position:relative;aspect-ratio:4/5;background:{{ recette.bg }};overflow:hidden;border-radius:8px">
-          <img src="img/degustation.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+          <img src="{{ recette.photo }}" alt="{{ recette.titre }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
         </div>
       </div>
       <div style="flex:1 1 340px;animation:rise 1s .1s both">
         <p style="font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#12554F;margin:0 0 20px">Recette</p>
         <h1 style="font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;line-height:1.08;letter-spacing:-.048em;margin:0 0 22px;color:#141713">{{ recette.titre }}</h1>
         <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0 0 28px;max-width:54ch">{{ recette.intro }}</p>
-        <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:1px;background:rgba(20,23,19,.16);border:1px solid rgba(20,23,19,.16);margin:0 0 32px">
-          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Temps</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.temps }}</dd></div>
-          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Difficulté</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.difficulte }}</dd></div>
-          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Pour</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.personnes }}</dd></div>
-          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Produit</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.produit }}</dd></div>
+        <dl style="display:flex;flex-wrap:wrap;gap:14px clamp(24px,4vw,44px);border-top:1px solid rgba(20,23,19,.16);border-bottom:1px solid rgba(20,23,19,.16);padding:18px 0;margin:0 0 32px">
+          <div><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Temps</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.temps }}</dd></div>
+          <div><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Difficulté</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.difficulte }}</dd></div>
+          <div><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Pour</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.personnes }}</dd></div>
+          <div><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Produit</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.produit }}</dd></div>
         </dl>
         <h2 style="font-size:1.18rem;font-weight:800;line-height:1.3;letter-spacing:-.035em;margin:0 0 14px;color:#141713">Ingrédients</h2>
         <ul style="margin:0 0 32px;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(20,23,19,.16)">
@@ -941,57 +941,379 @@ class Component extends DCLogic {
   recipesData() {
     return [
       {
-        titre: 'Tartines de seigle, crème à l\'aneth', temps: '10 min', difficulte: 'Très facile', personnes: '4 personnes',
-        produit: 'Original 200 g', bg: '#E9E3D4',
-        court: "Le geste le plus simple, et celui qu'on refait toute l'année.",
-        intro: "Pas une recette, presque un réflexe : du bon pain, une crème acidulée, et le saumon qu'on laisse en morceaux généreux plutôt qu'en lamelles.",
-        ingredients: ['200 g de saumon fumé Original', '4 tranches de pain de seigle', '150 g de séré ou crème épaisse', "1 petit bouquet d'aneth", '1/2 citron', 'Poivre du moulin'],
-        etapes: [
-          { n: '1', t: "Mélangez le séré avec l'aneth ciselé, le zeste et un filet de citron. Poivrez, ne salez pas : le saumon apporte déjà le sel." },
-          { n: '2', t: 'Toastez légèrement le pain de seigle, juste pour le tiédir.' },
-          { n: '3', t: 'Étalez la crème, déposez le saumon en larges morceaux, terminez par quelques pluches d\'aneth.' }
+        "titre": "Pommes de terre en robe des champs, saumon fumé et sauce aigre",
+        "temps": "1 h 15",
+        "difficulte": "Facile",
+        "personnes": "2 à 4 personnes",
+        "produit": "Original, plaquette",
+        "bg": "#E9E3D4", "photo": "img/recette-pommes-de-terre.webp",
+        "court": "Pommes de terre au four, crème à la ciboulette, saumon fumé et pignons grillés.",
+        "intro": "Une recette simple : les pommes de terre cuisent seules au four pendant que l'on prépare la sauce.",
+        "ingredients": [
+          "4 grosses pommes de terre",
+          "2 c. à soupe de crème fraîche épaisse",
+          "2 c. à soupe de ciboulette ciselée",
+          "1 gousse d'ail",
+          "4 tranches de saumon fumé",
+          "Sel",
+          "Poivre du moulin",
+          "5 baies roses",
+          "2 c. à soupe de pignons de pin"
         ],
-        cta: "Il vous manque le saumon ? Réservez le vôtre en deux minutes."
+        "etapes": [
+          {
+            "n": "1",
+            "t": "Envelopper individuellement les pommes de terre dans du papier aluminium."
+          },
+          {
+            "n": "2",
+            "t": "Préchauffer le four à 180 °C."
+          },
+          {
+            "n": "3",
+            "t": "Enfourner les pommes de terre pendant environ 1 heure. Vérifier la cuisson en plantant la lame d'un couteau au centre : elle doit s'enfoncer facilement."
+          },
+          {
+            "n": "4",
+            "t": "Pendant la cuisson, préparer la sauce en mélangeant la crème fraîche, la ciboulette ciselée et la gousse d'ail hachée."
+          },
+          {
+            "n": "5",
+            "t": "Saler et poivrer selon votre goût."
+          },
+          {
+            "n": "6",
+            "t": "Écraser les baies roses au pilon puis les incorporer à la crème."
+          },
+          {
+            "n": "7",
+            "t": "Mélanger soigneusement la sauce."
+          },
+          {
+            "n": "8",
+            "t": "Faire griller les pignons de pin dans une poêle sèche jusqu'à ce qu'ils soient légèrement dorés."
+          },
+          {
+            "n": "9",
+            "t": "Couper les pommes de terre cuites en deux."
+          },
+          {
+            "n": "10",
+            "t": "Écraser légèrement la chair à la fourchette et déposer une belle cuillère de sauce sur chaque moitié."
+          },
+          {
+            "n": "11",
+            "t": "Ajouter une tranche de saumon fumé sur chaque moitié."
+          },
+          {
+            "n": "12",
+            "t": "Parsemer de pignons grillés et d'un peu de ciboulette. Servir aussitôt, tant que les pommes de terre sont chaudes."
+          }
+        ],
+        "cta": "Il vous manque le saumon ? Commandez le vôtre."
       },
       {
-        titre: 'Œufs mollets, saumon Absinthe', temps: '20 min', difficulte: 'Facile', personnes: '4 personnes',
-        produit: 'Absinthe 200 g', bg: '#DDE3D2',
-        court: "L'anis de l'absinthe contre le jaune coulant : un accord très net.",
-        intro: "Un brunch qui a l'air travaillé et qui ne l'est pas. Toute la réussite tient à la cuisson de l'œuf : six minutes, pas sept.",
-        ingredients: ['200 g de saumon fumé Absinthe', '4 œufs très frais', '4 tranches de pain grillé', '1 c. à s. de beurre', 'Ciboulette', 'Poivre du moulin'],
-        etapes: [
-          { n: '1', t: "Plongez les œufs 6 minutes dans l'eau bouillante, puis arrêtez la cuisson dans l'eau glacée et écalez délicatement." },
-          { n: '2', t: 'Beurrez le pain grillé et couvrez-le de saumon Absinthe.' },
-          { n: '3', t: "Posez l'œuf mollet dessus, ouvrez-le, poivrez et parsemez de ciboulette. Servez aussitôt." }
+        "titre": "Carpaccio de radis, de pomme et de saumon fumé",
+        "temps": "20 min",
+        "difficulte": "Facile",
+        "personnes": "2 personnes",
+        "produit": "Au choix, plaquette",
+        "bg": "#DDE3D2", "photo": "img/recette-carpaccio.webp",
+        "court": "Daïkon, pomme, saumon fumé, crème fraîche et noisettes grillées.",
+        "intro": "Une entrée fraîche, sans cuisson. La vinaigrette à la pomme se prépare en premier.",
+        "ingredients": [
+          "Vinaigrette : 60 ml de jus de pomme à l'ancienne",
+          "30 ml de vinaigre de cidre",
+          "30 ml de petits dés de pomme rouge non pelée",
+          "15 ml de sirop d'érable",
+          "15 ml d'huile d'olive",
+          "1 échalote française émincée",
+          "1 radis coupé en petits dés",
+          "Sel, poivre",
+          "Carpaccio : 225 g de daïkon, pelé et coupé en fines tranches à la mandoline",
+          "1 radis coupé en petits dés",
+          "115 g de saumon fumé coupé en fines tranches",
+          "60 ml de crème fraîche",
+          "30 ml de noisettes grillées concassées",
+          "Quelques brins d'aneth"
         ],
-        cta: "Envie de tester l'accord absinthe ? Réservez votre plaquette."
+        "etapes": [
+          {
+            "n": "1",
+            "t": "Vinaigrette : dans un bol, mélanger le jus de pomme, le vinaigre de cidre, les dés de pomme, le sirop d'érable, l'huile d'olive, l'échalote et les dés de radis."
+          },
+          {
+            "n": "2",
+            "t": "Saler et poivrer, puis mélanger jusqu'à obtenir une vinaigrette homogène."
+          },
+          {
+            "n": "3",
+            "t": "Carpaccio : disposer les fines tranches de daïkon au fond des assiettes."
+          },
+          {
+            "n": "4",
+            "t": "Arroser avec la vinaigrette à la pomme."
+          },
+          {
+            "n": "5",
+            "t": "Répartir les dés de radis."
+          },
+          {
+            "n": "6",
+            "t": "Ajouter les fines tranches de saumon fumé."
+          },
+          {
+            "n": "7",
+            "t": "Déposer quelques touches de crème fraîche."
+          },
+          {
+            "n": "8",
+            "t": "Parsemer de noisettes grillées concassées."
+          },
+          {
+            "n": "9",
+            "t": "Terminer avec quelques brins d'aneth."
+          }
+        ],
+        "cta": "Il vous manque le saumon ? Commandez le vôtre."
       },
       {
-        titre: 'Tartare de saumon Bio, pomme verte', temps: '25 min', difficulte: 'Facile', personnes: '4 personnes',
-        produit: 'Bio 400 g', bg: '#E4E7DA',
-        court: "La chair ferme du Bio tient parfaitement le couteau.",
-        intro: "Un tartare coupé au couteau, pas au robot : on veut sentir la tranche. La pomme verte apporte le croquant et l'acidité, l'huile de noisette la rondeur.",
-        ingredients: ['400 g de saumon fumé Bio', '1 pomme verte acidulée', '1 échalote', '1 c. à s. d\'huile de noisette', '1/2 citron vert', 'Aneth, poivre'],
-        etapes: [
-          { n: '1', t: 'Coupez le saumon au couteau en cubes de 5 mm. Réservez au frais.' },
-          { n: '2', t: 'Taillez la pomme en petits dés, ciselez finement l\'échalote.' },
-          { n: '3', t: "Mélangez avec l'huile, le jus de citron vert et l'aneth. Poivrez." },
-          { n: '4', t: 'Dressez en cercle, laissez reposer 10 minutes au frais avant de servir.' }
+        "titre": "Salade d'été au saumon fumé et aux légumes croquants",
+        "temps": "35 min",
+        "difficulte": "Facile",
+        "personnes": "4 personnes",
+        "produit": "Au choix, plaquette",
+        "bg": "#E4E7DA", "photo": "img/recette-salade.webp",
+        "court": "Vermicelles de riz, légumes croquants, sésame et coriandre.",
+        "intro": "Une salade complète et colorée. Les légumes restent crus, seuls les vermicelles et les pois gourmands cuisent.",
+        "ingredients": [
+          "8 tranches de saumon fumé",
+          "50 g de vermicelles de riz",
+          "1/2 concombre",
+          "50 g de pois gourmands",
+          "1 carotte",
+          "2 oignons nouveaux",
+          "12 radis roses",
+          "1 radis bleu « Blue Meat »",
+          "1/2 betterave Chioggia crue",
+          "30 g de germes de soja",
+          "100 g de champignons shiitakés",
+          "20 g de pousses de betterave",
+          "3 c. à soupe de graines de sésame noir",
+          "Coriandre fraîche",
+          "Le jus d'un citron ou 2 c. à soupe de vinaigre de riz",
+          "4 c. à soupe d'huile de pépins de raisin",
+          "1 c. à soupe d'huile de sésame",
+          "1 c. à soupe de sauce soja",
+          "Sel, poivre du moulin"
         ],
-        cta: "Le Bio se réserve à l'avance — c'est une petite production."
+        "etapes": [
+          {
+            "n": "1",
+            "t": "Laver soigneusement tous les légumes."
+          },
+          {
+            "n": "2",
+            "t": "Faire cuire les vermicelles de riz et les pois gourmands pendant 5 minutes dans une grande casserole d'eau bouillante salée."
+          },
+          {
+            "n": "3",
+            "t": "Égoutter puis plonger immédiatement les vermicelles et les pois gourmands dans un saladier d'eau froide."
+          },
+          {
+            "n": "4",
+            "t": "Couper le concombre et les radis en fines rondelles."
+          },
+          {
+            "n": "5",
+            "t": "Détailler la betterave Chioggia en petits bâtonnets."
+          },
+          {
+            "n": "6",
+            "t": "Émincer les oignons nouveaux."
+          },
+          {
+            "n": "7",
+            "t": "Râper la carotte."
+          },
+          {
+            "n": "8",
+            "t": "Couper les champignons shiitakés en fines lamelles."
+          },
+          {
+            "n": "9",
+            "t": "Arroser les légumes concernés avec un peu de jus de citron afin de limiter leur oxydation."
+          },
+          {
+            "n": "10",
+            "t": "Découper les tranches de saumon fumé en grandes lanières."
+          },
+          {
+            "n": "11",
+            "t": "Préparer la vinaigrette en mélangeant l'huile de pépins de raisin, l'huile de sésame et le jus de citron. Ajouter la sauce soja."
+          },
+          {
+            "n": "12",
+            "t": "Saler et poivrer."
+          },
+          {
+            "n": "13",
+            "t": "Égoutter soigneusement les vermicelles et les pois gourmands."
+          },
+          {
+            "n": "14",
+            "t": "Réunir tous les légumes et les vermicelles dans un grand saladier."
+          },
+          {
+            "n": "15",
+            "t": "Verser la vinaigrette et mélanger délicatement."
+          },
+          {
+            "n": "16",
+            "t": "Répartir la salade dans 4 assiettes ou bols."
+          },
+          {
+            "n": "17",
+            "t": "Ajouter les lanières de saumon fumé."
+          },
+          {
+            "n": "18",
+            "t": "Parsemer de graines de sésame noir et de coriandre fraîche ciselée."
+          },
+          {
+            "n": "19",
+            "t": "Servir immédiatement."
+          }
+        ],
+        "cta": "Il vous manque le saumon ? Commandez le vôtre."
       },
       {
-        titre: 'Plateau de fête, saumon Label', temps: '30 min', difficulte: 'Facile', personnes: '6 à 8 personnes',
-        produit: 'Label, filet entier', bg: '#E7DCD6',
-        court: "Un filet entier posé sur la table, et rien d'autre à faire.",
-        intro: "Pour les fêtes, la meilleure recette est l'absence de recette : un filet entier, tranché devant les convives, avec trois ou quatre accompagnements bien choisis.",
-        ingredients: ['1 filet de saumon fumé Label', 'Pain de seigle et blinis', 'Beurre de baratte demi-sel', 'Citrons confits', 'Câpres, aneth, raifort', 'Pommes de terre grenaille tièdes'],
-        etapes: [
-          { n: '1', t: "Sortez le filet du froid 20 minutes avant de servir : les arômes de fumée s'ouvrent à température de cave." },
-          { n: '2', t: 'Disposez les accompagnements en petits bols séparés, sans surcharger la planche.' },
-          { n: '3', t: 'Tranchez à la demande, en biais et assez épais, en remontant vers la queue.' }
+        "titre": "Smashed potatoes au saumon fumé",
+        "temps": "40 min",
+        "difficulte": "Facile",
+        "personnes": "4 personnes",
+        "produit": "Au choix, plaquette",
+        "bg": "#E7DCD6", "photo": "img/recette-smashed.webp",
+        "court": "Pommes de terre écrasées et croustillantes, crème citronnée, saumon et roquette.",
+        "intro": "Des pommes de terre grenaille déjà cuites, écrasées puis dorées au four, garnies d'une crème au séré.",
+        "ingredients": [
+          "200 g de pommes de terre grenaille cuites",
+          "30 g de parmesan",
+          "1 branche de thym",
+          "100 g de séré",
+          "Un peu de ricotta",
+          "1 gousse d'ail",
+          "1 citron",
+          "4 tranches de saumon fumé",
+          "1 poignée de roquette",
+          "1 pincée de poivre",
+          "1 filet d'huile d'olive"
         ],
-        cta: "Les filets entiers partent vite en décembre : réservez tôt."
+        "etapes": [
+          {
+            "n": "1",
+            "t": "Préchauffer le four à 180 °C."
+          },
+          {
+            "n": "2",
+            "t": "Disposer les pommes de terre grenaille déjà cuites sur une plaque recouverte de papier cuisson."
+          },
+          {
+            "n": "3",
+            "t": "À l'aide d'un verre, écraser délicatement chaque pomme de terre afin de former un disque assez plat."
+          },
+          {
+            "n": "4",
+            "t": "Saupoudrer les pommes de terre de parmesan."
+          },
+          {
+            "n": "5",
+            "t": "Ajouter les feuilles de thym."
+          },
+          {
+            "n": "6",
+            "t": "Enfourner pendant environ 30 minutes à 180 °C, jusqu'à ce que les pommes de terre soient dorées et croustillantes."
+          },
+          {
+            "n": "7",
+            "t": "Pendant ce temps, préparer la crème : mélanger le séré avec un peu de ricotta, l'ail finement émincé et le jus de citron."
+          },
+          {
+            "n": "8",
+            "t": "Mélanger jusqu'à obtenir une préparation crémeuse."
+          },
+          {
+            "n": "9",
+            "t": "Étaler cette préparation sur les pommes de terre encore chaudes."
+          },
+          {
+            "n": "10",
+            "t": "Déposer les tranches de saumon fumé."
+          },
+          {
+            "n": "11",
+            "t": "Ajouter une poignée de roquette."
+          },
+          {
+            "n": "12",
+            "t": "Terminer avec un filet d'huile d'olive, une pincée de sel si nécessaire et un peu de poivre."
+          }
+        ],
+        "cta": "Il vous manque le saumon ? Commandez le vôtre."
+      },
+      {
+        "titre": "Éclairs gourmands au saumon fumé",
+        "temps": "1 h 15",
+        "difficulte": "Moyen",
+        "personnes": "6 éclairs",
+        "produit": "Au choix, plaquette",
+        "bg": "#E7DCD6",
+        "photo": "img/recette-eclair.webp",
+        "court": "Pâte à choux maison, crème mascarpone-tarama, saumon fumé et œufs de saumon.",
+        "intro": "Des éclairs salés pour une occasion : la pâte à choux se prépare en premier, la garniture pendant qu'elle refroidit.",
+        "ingredients": [
+          "6 belles tranches de saumon fumé",
+          "200 g de farine",
+          "100 g de beurre demi-sel",
+          "6 œufs",
+          "1 jaune d'œuf",
+          "30 cl d'eau",
+          "100 g de mascarpone",
+          "100 g de tarama",
+          "2 c. à soupe de ciboulette ciselée",
+          "2 c. à café d'œufs de saumon",
+          "1 c. à café de zestes de citron jaune",
+          "1 c. à café de zestes de citron vert ou de combawa",
+          "Sel",
+          "Poivre du moulin"
+        ],
+        "etapes": [
+          {
+            "n": "1",
+            "t": "Préchauffer le four à 210 °C en chaleur tournante. Verser le beurre et l'eau dans une casserole et porter à ébullition. Hors du feu, verser la farine et bien mélanger avec une spatule pour obtenir une pâte compacte. Ajouter les 6 œufs entiers en les incorporant un à un, puis ajouter les zestes de citron jaune."
+          },
+          {
+            "n": "2",
+            "t": "Travailler la pâte afin qu'elle forme une boule bien ferme qui se détache des parois, puis la laisser refroidir à température ambiante. Verser la pâte dans une poche à douille puis former des boudins de 15 cm de long sur une plaque de cuisson antiadhésive. Les dorer avec le jaune d'œuf puis enfourner et laisser cuire 20 min environ."
+          },
+          {
+            "n": "3",
+            "t": "Couper le four et laisser les éclairs 10 min porte entrouverte, puis les laisser refroidir à température ambiante."
+          },
+          {
+            "n": "4",
+            "t": "Pendant ce temps, mélanger le mascarpone et le tarama. Saler, poivrer et ajouter la ciboulette ciselée."
+          },
+          {
+            "n": "5",
+            "t": "Couper les tranches de saumon fumé en rubans. Couper chaque éclair en deux puis déposer la crème de tarama sur chaque base. Ajouter joliment les rubans de saumon fumé, puis refermer les éclairs."
+          },
+          {
+            "n": "6",
+            "t": "Décorer le dessus avec une ligne de zestes de citron vert et d'œufs de saumon, et servir aussitôt."
+          }
+        ],
+        "cta": "Il vous manque le saumon ? Commandez le vôtre."
       }
     ];
   }
@@ -1136,7 +1458,7 @@ class Component extends DCLogic {
 
     const pages = [
       ['Accueil', 'accueil'], ['Notre self-service', 'self'], ['Nos produits', 'produits'],
-      ['Savoir-faire et histoire', 'savoir'], ['Contact', 'contact'], ['Commander votre saumon', 'resa']
+      ['Savoir-faire et histoire', 'savoir'], ['Recettes', 'recettes'], ['Événements', 'events'], ['Contact', 'contact'], ['Commander votre saumon', 'resa']
     ];
 
     return {
@@ -1172,10 +1494,10 @@ class Component extends DCLogic {
 
       products: p.map((x) => Object.assign({}, x, { labelSrc: x.label, photoSrc: x.photo })),
       homeRecipes: recs.slice(0, 3).map((r, i) => ({
-        titre: r.titre, court: r.court, temps: r.temps, difficulte: r.difficulte, bg: r.bg, open: this.openRecette(i)
+        titre: r.titre, court: r.court, temps: r.temps, difficulte: r.difficulte, bg: r.bg, photo: r.photo, open: this.openRecette(i)
       })),
       recipes: recs.map((r, i) => ({
-        titre: r.titre, court: r.court, temps: r.temps, difficulte: r.difficulte, bg: r.bg, open: this.openRecette(i)
+        titre: r.titre, court: r.court, temps: r.temps, difficulte: r.difficulte, bg: r.bg, photo: r.photo, open: this.openRecette(i)
       })),
       recette: recs[s.recetteId],
 
