@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Saumon Fumé des Acacias — Le goût du savoir-faire</title>
+<meta name="description" content="Fumoir artisanal à Fleurier, Val-de-Travers. Saumon atlantique fumé à froid : Original, Absinthe, Bio et Label. Self-service 7j/7, Chemin des Acacias 10." />
+<style>
+  @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+  @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+  @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+  @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Heavy.ttf') format('truetype'); font-weight: 800; font-display: swap; }
+  @font-face { font-family: 'Sunset Gothic Pro'; src: url('uploads/sunset-gothic-font-1790037445-0/Sunset-Gothic-Pro-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F4F1EC; color: #141713; font-family: 'Sunset Gothic Pro', system-ui, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; text-wrap: pretty; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: #141713; text-decoration: none; }
+  a:hover { color: #12554F; }
+  button, input, textarea, select { font-family: inherit; color: #141713; }
+  ::selection { background: #C3A15A; color: #141713; }
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes drift { from { transform: scale(1.03); } to { transform: scale(1.11) translateY(-1.4%); } }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#F4F1EC">
+
+<header style="position:sticky;top:0;z-index:60;background:rgba(244,241,236,.96);backdrop-filter:blur(16px) saturate(140%)">
+<a href="#" onClick="{{ goSelf }}" style="display:block;background:#12554F;color:#FFFFFF;text-decoration:none">
+  <div style="max-width:1400px;margin:0 auto;padding:8px clamp(12px,3.5vw,44px);display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;justify-content:center;text-align:center">
+    <span style="font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#E3C889">Self-service ouvert 7j/7</span>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}"><span style="font-size:.86rem;font-weight:500;color:#FFFFFF">Servez-vous directement au fumoir — Chemin des Acacias 10, 2114 Fleurier</span></sc-if>
+    <sc-if value="{{ isMobile }}"><span style="font-size:.8rem;font-weight:500;color:#FFFFFF">Chemin des Acacias 10, Fleurier</span></sc-if>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}"><span style="font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#E3C889">En savoir plus →</span></sc-if>
+  </div>
+</a>
+  <div style="max-width:1400px;margin:0 auto;padding:clamp(8px,1.4vw,16px) clamp(12px,3.5vw,44px);display:flex;align-items:center;gap:10px">
+    <div style="flex:1 1 0;display:flex;justify-content:flex-start">
+      <button onClick="{{ toggleMenu }}" aria-label="Ouvrir le menu" style="display:flex;align-items:center;gap:12px;background:none;border:none;padding:10px 0;cursor:pointer;min-height:44px">
+        <span style="display:flex;flex-direction:column;gap:5px">
+          <span style="display:block;width:26px;height:2px;background:#141713"></span>
+          <span style="display:block;width:26px;height:2px;background:#141713"></span>
+          <span style="display:block;width:26px;height:2px;background:#141713"></span>
+        </span>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <span style="font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Menu</span>
+        </sc-if>
+      </button>
+    </div>
+
+    <a href="#" onClick="{{ goAccueil }}" style="flex:0 0 auto;display:flex;align-items:center;gap:12px;color:#141713">
+      <img src="uploads/marque-or.png" alt="Saumon Fumé des Acacias" style="height:auto;width:clamp(96px,11vw,150px)" />
+    </a>
+
+    <div style="flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:clamp(10px,1.4vw,20px)">
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <a href="tel:0795045980" style="font-size:.76rem;font-weight:500;letter-spacing:.1em;color:#141713;white-space:nowrap">079 504 59 80</a>
+      </sc-if>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <a href="#" onClick="{{ goResa }}" style="font-size:clamp(.62rem,1.6vw,.72rem);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFFFF;background:#12554F;padding:13px clamp(12px,2vw,22px);min-height:44px;display:flex;align-items:center;transition:background .35s" style-hover="background:#0C3B37;color:#FFFFFF">Commander</a>
+      </sc-if>
+    </div>
+  </div>
+</header>
+
+<sc-if value="{{ menuOpen }}">
+  <div style="position:fixed;inset:0;z-index:90;background:#141713;color:#FFFFFF;padding:clamp(20px,5vw,44px);display:flex;flex-direction:column;animation:fade .3s both;overflow:hidden">
+    <img src="uploads/saumon-or.png" alt="" style="position:absolute;right:-8%;bottom:6%;width:82%;max-width:560px;opacity:.28;pointer-events:none" />
+    <div style="display:flex;align-items:center;justify-content:space-between;position:relative;gap:16px">
+      <span style="font-size:1.05rem;font-weight:800;letter-spacing:-.02em;color:#FFFFFF">Saumon Fumé des Acacias</span>
+      <button onClick="{{ toggleMenu }}" aria-label="Fermer le menu" style="background:none;border:1px solid rgba(255,255,255,.4);color:#FFFFFF;padding:13px 16px;cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;min-height:44px">Fermer</button>
+    </div>
+    <nav style="margin:auto 0;display:flex;flex-direction:column;gap:clamp(2px,.8vh,8px);position:relative">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="8">
+        <a href="#" onClick="{{ n.go }}" style="font-size:clamp(1.5rem,6.4vw,2.2rem);font-weight:800;line-height:1.2;letter-spacing:-.035em;color:{{ n.color }};padding:6px 0">{{ n.label }}</a>
+      </sc-for>
+    </nav>
+    <div style="border-top:1px solid rgba(255,255,255,.22);padding-top:20px;display:flex;flex-direction:column;gap:6px;position:relative">
+      <span style="font-size:.95rem;font-weight:400;line-height:1.6;color:#FFFFFF">Chemin des Acacias 10 — 2114 Fleurier</span>
+      <a href="tel:0795045980" style="font-size:.95rem;font-weight:700;line-height:1.6;color:#E3C889">079 504 59 80</a>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ════════ ACCUEIL ════════ -->
+<sc-if value="{{ isAccueil }}" hint-placeholder-val="{{ true }}">
+<main>
+  <section style="padding:0 clamp(10px,2.4vw,30px)">
+    <div style="position:relative;max-width:1400px;margin:0 auto;height:clamp(440px,72vh,760px);overflow:hidden;border-radius:10px;background:#141713">
+      <img src="img/fumage3.webp" alt="Filets de saumon suspendus dans la chambre de fumage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;animation:drift 26s ease-in-out infinite alternate" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.34) 0%,rgba(20,23,19,.14) 34%,rgba(20,23,19,.66) 100%)"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(24px,5vw,64px)">
+        <h1 style="font-size:clamp(1.9rem,5.2vw,4.1rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;color:#FFFFFF;margin:0;max-width:22ch;animation:rise 1.1s .1s both">Saumon fumé artisanal<br />du Val-de-Travers</h1>
+        <p style="font-size:clamp(.95rem,1.4vw,1.15rem);font-weight:500;line-height:1.55;color:#FFFFFF;margin:clamp(12px,1.8vw,20px) 0 0;max-width:46ch;animation:rise 1.1s .26s both">Quatre saumons, dont un à l'absinthe du Val-de-Travers. Fabriqué et vendu à Fleurier, en self-service 7j/7.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:clamp(22px,3vw,36px);animation:rise 1.1s .4s both">
+          <a href="#" onClick="{{ goResa }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;background:#FFFFFF;padding:20px 32px;transition:background .35s" style-hover="background:#C3A15A;color:#141713">Commander votre saumon</a>
+          <a href="#" onClick="{{ goSavoir }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;border:1px solid rgba(255,255,255,.6);padding:20px 32px;transition:background .35s" style-hover="background:rgba(255,255,255,.16);color:#FFFFFF">Notre savoir-faire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width:1400px;margin:0 auto;padding:clamp(30px,4.4vw,58px) clamp(20px,4vw,50px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:clamp(18px,2.6vw,34px)">
+      <sc-for list="{{ marks }}" as="m" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:8px;border-left:1px solid rgba(20,23,19,.2);padding-left:clamp(14px,1.8vw,24px)">
+          <span style="font-size:.76rem;font-weight:800;line-height:1.3;letter-spacing:.14em;text-transform:uppercase;color:#A8742F">{{ m.titre }}</span>
+          <span style="font-size:.95rem;font-weight:400;line-height:1.55;color:#141713">{{ m.texte }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:none">
+    <div>
+      <div>
+        <p>Self-service</p>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.045em;margin:0;color:#FFFFFF">Servez-vous<br />directement au fumoir.</h2>
+        <p style="font-size:clamp(1.02rem,1.25vw,1.16rem);font-weight:400;line-height:1.72;color:#FFFFFF;margin:0;max-width:50ch">Notre frigo en libre-service est accessible tous les jours au chemin des Acacias 10, à Fleurier. Vous prenez ce que vous voulez, vous réglez sur place en espèces ou par Twint. Pas d'horaires, pas de rendez-vous.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:1px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.22);margin-top:6px">
+          <div style="background:#141713;padding:16px 18px"><p style="font-size:.64rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#E3C889;margin:0 0 8px">Adresse</p><p style="font-size:.98rem;font-weight:500;line-height:1.5;color:#FFFFFF;margin:0">Chemin des Acacias 10<br />2114 Fleurier</p></div>
+          <div style="background:#141713;padding:16px 18px"><p style="font-size:.64rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#E3C889;margin:0 0 8px">Ouverture</p><p style="font-size:.98rem;font-weight:500;line-height:1.5;color:#FFFFFF;margin:0">7j/7, en continu<br />Accès libre</p></div>
+          <div style="background:#141713;padding:16px 18px"><p style="font-size:.64rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#E3C889;margin:0 0 8px">Paiement</p><p style="font-size:.98rem;font-weight:500;line-height:1.5;color:#FFFFFF;margin:0">Espèces ou Twint<br />sur place</p></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+          <a href="#" onClick="{{ goSelf }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;background:#FFFFFF;padding:19px 30px;transition:background .35s" style-hover="background:#C3A15A;color:#141713">Comment ça marche</a>
+          <a href="https://maps.google.com/?q=Chemin+des+Acacias+10,+2114+Fleurier" target="_blank" rel="noopener" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;border:1px solid rgba(255,255,255,.45);padding:19px 30px;transition:background .35s" style-hover="background:rgba(255,255,255,.14);color:#FFFFFF">Itinéraire</a>
+        </div>
+      </div>
+      <div style="flex:1 1 300px;min-height:260px;position:relative">
+        <img src="img/claude1.webp" alt="Claude, l'artisan, au tranchage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#FDFBF6;padding:clamp(56px,8.5vw,130px) clamp(20px,5vw,60px);border-top:1px solid rgba(20,23,19,.1);border-bottom:1px solid rgba(20,23,19,.1)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(30px,5vw,72px);align-items:center">
+      <div style="flex:1 1 320px;order:2;animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+        <p style="font-size:.7rem;font-weight:800;line-height:1;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 20px">La maison</p>
+        <h2 style="font-size:clamp(1.8rem,3.6vw,2.9rem);font-weight:800;line-height:1.1;letter-spacing:-.045em;margin:0 0 24px;color:#141713">Un fumoir artisanal au cœur du Val-de-Travers.</h2>
+        <p style="font-size:clamp(1.04rem,1.2vw,1.16rem);font-weight:400;line-height:1.78;color:#141713;margin:0 0 28px;max-width:52ch">Les filets d'atlantique sont parés à la main, salés au sel sec, puis fumés à froid dans notre atelier de Fleurier. Petites quantités, gestes constants.</p>
+        <a href="#" onClick="{{ goHistoire }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border-bottom:2px solid #C3A15A;padding-bottom:8px;transition:color .3s" style-hover="color:#12554F">Notre savoir-faire</a>
+      </div>
+      <div style="flex:1 1 380px;order:1;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+        <img src="img/fumage1.webp" alt="Le fumoir des Acacias, filets suspendus" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px" />
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F4F1EC;padding:clamp(56px,8.5vw,130px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;border-bottom:1px solid rgba(20,23,19,.16);padding-bottom:clamp(20px,3vw,32px);margin-bottom:clamp(28px,4.2vw,52px)">
+        <div>
+          <p style="font-size:.7rem;font-weight:800;line-height:1;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 18px">Nos produits</p>
+          <h2 style="font-size:clamp(1.8rem,3.8vw,3.1rem);font-weight:800;line-height:1.1;letter-spacing:-.045em;margin:0;color:#141713">Quatre recettes,<br />un même geste.</h2>
+        </div>
+        <a href="#" onClick="{{ goProduits }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border-bottom:2px solid #C3A15A;padding-bottom:8px;transition:color .3s" style-hover="color:#12554F">Tous les produits</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(16px,2.2vw,28px)">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+          <a href="#" onClick="{{ goProduits }}" style="display:flex;flex-direction:column;gap:18px;color:#141713;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 22%">
+            <div style="overflow:hidden;background:#E6E1D6;border-radius:6px">
+              <img src="{{ p.labelSrc }}" alt="Étiquette {{ p.nom }}" style="width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+            </div>
+            <div>
+              <p style="font-size:.64rem;font-weight:700;line-height:1;letter-spacing:.2em;text-transform:uppercase;margin:0 0 10px;color:{{ p.color }}">{{ p.eyebrow }}</p>
+              <h3 style="font-size:clamp(1.22rem,1.7vw,1.46rem);font-weight:800;line-height:1.24;letter-spacing:-.032em;margin:0 0 8px;color:#141713">{{ p.nom }}</h3>
+              <p style="font-size:.96rem;font-weight:400;line-height:1.65;color:#141713;margin:0">{{ p.court }}</p>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#12554F;padding:clamp(56px,8.5vw,130px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,80px);align-items:center">
+      <div style="flex:1 1 380px;order:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,16px);animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+        <img src="img/fumage4.webp" alt="Filets dans la chambre de fumage" style="grid-column:1/-1;width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:6px" />
+        <img src="img/salage.webp" alt="Salage au sel sec" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px" />
+        <img src="img/absinthe.webp" alt="Le filet arrosé d'absinthe du Val-de-Travers" style="width:100%;aspect-ratio:1;object-fit:cover;object-position:center 40%;border-radius:6px" />
+      </div>
+      <div style="flex:1 1 340px;order:2;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+        <p style="font-size:.7rem;font-weight:700;line-height:1;letter-spacing:.24em;text-transform:uppercase;color:#E3C889;margin:0 0 20px">Le fumage</p>
+        <h2 style="font-size:clamp(1.8rem,3.8vw,3.1rem);font-weight:800;line-height:1.1;letter-spacing:-.045em;margin:0 0 24px;color:#FFFFFF">Fumé à froid,<br />aux copeaux de barriques.</h2>
+        <p style="font-size:clamp(1.02rem,1.2vw,1.14rem);font-weight:400;line-height:1.78;color:#FFFFFF;margin:0;max-width:52ch">Aucune source de chaleur dans la chambre : seule la fumée froide travaille la chair, entre 0 et 20 degrés. Le combustible fait toute la différence — des copeaux de barriques de chêne Jack Daniel's, pour une fumée ronde et légèrement vanillée.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,52px);margin:clamp(26px,3.6vw,40px) 0">
+          <div><p style="font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:#E3C889;margin:0 0 10px">0–20°</p><p style="font-size:.68rem;font-weight:700;line-height:1.45;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;margin:0">Température<br />de fumage</p></div>
+          <div><p style="font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:#E3C889;margin:0 0 10px">6</p><p style="font-size:.68rem;font-weight:700;line-height:1.45;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;margin:0">Étapes<br />artisanales</p></div>
+          <div><p style="font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:#E3C889;margin:0 0 10px">4</p><p style="font-size:.68rem;font-weight:700;line-height:1.45;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;margin:0">Saumons dont<br />un à l'absinthe</p></div>
+        </div>
+        <a href="#" onClick="{{ goSavoir }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#12554F;background:#FFFFFF;padding:20px 32px;display:inline-block;transition:background .35s" style-hover="background:#E3C889;color:#12554F">Les six étapes</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(56px,8.5vw,130px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(30px,5vw,72px);align-items:center">
+      <div style="flex:1 1 380px;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+        <img src="img/claude-pecheur.webp" alt="Claude, pêcheur à la mouche" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px" />
+      </div>
+      <div style="flex:1 1 320px;animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 26%">
+        <p style="font-size:.7rem;font-weight:800;line-height:1;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 20px">Notre histoire</p>
+        <h2 style="font-size:clamp(1.8rem,3.6vw,2.9rem);font-weight:800;line-height:1.1;letter-spacing:-.045em;margin:0 0 24px;color:#141713">De la rivière<br />au fumoir.</h2>
+        <p style="font-size:clamp(1.04rem,1.2vw,1.16rem);font-weight:400;line-height:1.78;color:#141713;margin:0 0 28px;max-width:52ch">Enfant à Fleurier, on pêche dans la rivière du village. Adulte, on part pour les fleuves du Nord. Restait à réunir les deux passions : la pêche et la table.</p>
+        <a href="#" onClick="{{ goHistoire }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border-bottom:2px solid #C3A15A;padding-bottom:8px;transition:color .3s" style-hover="color:#12554F">Toute l'histoire</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#FDFBF6;padding:clamp(44px,6.5vw,96px) clamp(20px,5vw,60px);border-top:1px solid rgba(20,23,19,.12);border-bottom:1px solid rgba(20,23,19,.12)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,60px);align-items:center;justify-content:space-between">
+      <div style="flex:1 1 320px">
+        <p style="font-size:.7rem;font-weight:800;line-height:1;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 16px">Recettes et événements</p>
+        <h2 style="font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:800;line-height:1.12;letter-spacing:-.045em;margin:0 0 12px;color:#141713">Idées de service et prochaines dates.</h2>
+        <p style="font-size:1.04rem;font-weight:400;line-height:1.7;color:#141713;margin:0;max-width:48ch">Quatre recettes simples, et les marchés où nous tenons un stand.</p>
+      </div>
+      <div style="flex:0 0 auto;display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#" onClick="{{ goRecettes }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;background:#12554F;padding:20px 30px;transition:background .35s" style-hover="background:#0C3B37;color:#FFFFFF">Les recettes</a>
+        <a href="#" onClick="{{ goEvents }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border:1px solid rgba(20,23,19,.3);padding:20px 30px;transition:background .35s" style-hover="background:#F4F1EC;color:#141713">Les événements</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,6vw,88px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto;border:2px solid #12554F;border-radius:10px;padding:clamp(22px,3.2vw,40px);display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);align-items:center;justify-content:space-between">
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:10px">
+        <p style="font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#A8742F;margin:0">Self-service 7j/7</p>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem);font-weight:800;line-height:1.15;letter-spacing:-.04em;margin:0;color:#141713">Chemin des Acacias 10, 2114 Fleurier</h2>
+        <p style="font-size:1rem;font-weight:400;line-height:1.65;color:#141713;margin:0;max-width:52ch">Frigo en libre-service accessible tous les jours, sans rendez-vous. Paiement sur place.</p>
+      </div>
+      <div style="flex:0 0 auto;display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#" onClick="{{ goSelf }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;background:#12554F;padding:19px 28px;transition:background .35s" style-hover="background:#0C3B37;color:#FFFFFF">Trouver notre self-service</a>
+        <a href="https://maps.google.com/?q=Chemin+des+Acacias+10,+2114+Fleurier" target="_blank" rel="noopener" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border:1px solid rgba(20,23,19,.3);padding:19px 28px;transition:background .35s" style-hover="background:#FDFBF6;color:#141713">Itinéraire</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(10px,2.4vw,30px) clamp(30px,4vw,56px)">
+    <div style="position:relative;max-width:1400px;margin:0 auto;overflow:hidden;border-radius:10px;background:#141713">
+      <img src="img/fumage2.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.34" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.8),rgba(20,23,19,.93))"></div>
+      <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(62px,9vw,140px) clamp(20px,5vw,60px);text-align:center">
+        <p style="font-size:.7rem;font-weight:700;line-height:1;letter-spacing:.26em;text-transform:uppercase;color:#E3C889;margin:0 0 22px">Commande</p>
+        <h2 style="font-size:clamp(1.9rem,4.6vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.045em;color:#FFFFFF;margin:0 0 20px">Commandez votre saumon.</h2>
+        <p style="font-size:clamp(1.02rem,1.4vw,1.2rem);font-weight:400;line-height:1.68;color:#FFFFFF;margin:0 auto 34px;max-width:50ch">Choisissez vos saumons et vos formats : nous préparons un e-mail prêt à envoyer. Retrait à Fleurier ou à Bôle, règlement sur place.</p>
+        <a href="#" onClick="{{ goResa }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;background:#FFFFFF;padding:20px 32px;display:inline-block;transition:background .35s" style-hover="background:#C3A15A;color:#141713">Commander votre saumon</a>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ PRODUITS ════════ -->
+<sc-if value="{{ isProduits }}">
+<main>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Nos produits</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Quatre saumons,<br />quatre humeurs.</h1>
+      <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Tous nés du même geste : parage à la main, salage au sel sec, fumage à froid. En plaquettes tranchées sous vide ou en filet entier, selon les saisons. Pas de boutique en ligne — la réservation se fait par e-mail ou par téléphone.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,120px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(44px,6.5vw,108px)">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+        <article style="display:flex;flex-wrap:wrap;gap:clamp(26px,4vw,64px);align-items:flex-start;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 24%">
+          <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:clamp(10px,1.2vw,16px)">
+            <img src="{{ p.labelSrc }}" alt="Étiquette {{ p.nom }}" style="width:100%;height:auto;border-radius:6px" />
+          </div>
+          <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:18px">
+            <p style="font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:0;color:{{ p.color }}">{{ p.eyebrow }}</p>
+            <h2 style="font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;line-height:1.1;letter-spacing:-.045em;margin:0;color:#141713">{{ p.nom }}</h2>
+            <p style="font-size:clamp(1.02rem,1.2vw,1.14rem);font-weight:400;line-height:1.78;color:#141713;margin:0;max-width:52ch">{{ p.long }}</p>
+            <p style="font-size:1.06rem;font-weight:500;line-height:1.72;color:#12554F;margin:0;max-width:48ch;border-left:3px solid {{ p.color }};padding-left:18px">{{ p.degustation }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;border-top:1px solid rgba(20,23,19,.16);border-bottom:1px solid rgba(20,23,19,.16);padding:16px 0">
+              <span style="font-size:clamp(1.1rem,1.6vw,1.34rem);font-weight:800;letter-spacing:-.03em;color:#141713">{{ p.prix }}</span>
+              <span style="font-size:.9rem;font-weight:400;color:#141713">Plaquettes découpées à la main — poids approximatif, prix au poids réel.</span>
+            </div>
+            <dl style="margin:4px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr));gap:10px">
+              <sc-for list="{{ p.specs }}" as="s" hint-placeholder-count="4">
+                <div style="background:#FDFBF6;border:1px solid rgba(20,23,19,.14);border-radius:6px;padding:16px 18px">
+                  <dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">{{ s.k }}</dt>
+                  <dd style="font-size:.97rem;font-weight:400;line-height:1.5;color:#141713;margin:0">{{ s.v }}</dd>
+                </div>
+              </sc-for>
+            </dl>
+            <a href="#" onClick="{{ goResa }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;background:#12554F;padding:19px 30px;align-self:flex-start;transition:background .35s" style-hover="background:#0C3B37;color:#FFFFFF">Commander ce saumon</a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ SAVOIR-FAIRE ════════ -->
+<sc-if value="{{ isSavoir }}">
+<main>
+  <section style="padding:0 clamp(10px,2.4vw,30px)">
+    <div style="position:relative;max-width:1400px;margin:0 auto;height:clamp(340px,52vh,560px);overflow:hidden;border-radius:10px;background:#141713">
+      <img src="img/fumage2.webp" alt="Filets suspendus dans la fumée froide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.36),rgba(20,23,19,.74))"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(24px,5vw,56px)">
+        <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#E3C889;margin:0 0 18px;animation:rise .9s both">Notre savoir-faire</p>
+        <h1 style="font-size:clamp(2rem,5.4vw,4.2rem);font-weight:800;line-height:1.04;letter-spacing:-.048em;color:#FFFFFF;margin:0;max-width:22ch;animation:rise 1.1s .1s both">Six étapes, et beaucoup de patience</h1>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(48px,7vw,110px) clamp(20px,5vw,60px) 0">
+    <div style="max-width:68ch;margin:0 auto">
+      <p style="font-size:clamp(1.1rem,1.5vw,1.32rem);font-weight:400;line-height:1.72;color:#141713;margin:0">Le fumage à froid n'accepte aucun raccourci. Pas de chaleur, pas d'accélérateur, pas de fumée liquide. Seulement du sel, du bois, du temps — et un artisan qui décide chaque matin si le vent est bon.</p>
+    </div>
+  </section>
+
+  <section style="padding:clamp(44px,6.5vw,100px) clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,5vw,84px)">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+        <article style="display:flex;flex-wrap:wrap;gap:clamp(22px,3.6vw,56px);align-items:flex-start;border-top:1px solid rgba(20,23,19,.16);padding-top:clamp(22px,2.8vw,38px);animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 24%">
+          <p style="flex:0 0 auto;font-size:clamp(2.2rem,4.6vw,3.8rem);font-weight:800;line-height:.9;letter-spacing:-.055em;color:#C3A15A;margin:0;width:2.4em">{{ s.num }}</p>
+          <div style="flex:1 1 300px">
+            <h2 style="font-size:clamp(1.5rem,2.6vw,2.05rem);font-weight:800;line-height:1.16;letter-spacing:-.042em;margin:0 0 16px;color:#141713">{{ s.titre }}</h2>
+            <p style="font-size:clamp(1.02rem,1.2vw,1.12rem);font-weight:400;line-height:1.75;color:#141713;margin:0 0 14px;max-width:54ch">{{ s.texte }}</p>
+            <p style="font-size:.68rem;font-weight:700;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0">{{ s.duree }}</p>
+          </div>
+          <div style="flex:1 1 300px">
+            <img src="{{ s.photoSrc }}" alt="{{ s.alt }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px" />
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ HISTOIRE ════════ -->
+<sc-if value="{{ isHistoire }}">
+<section style="border-top:1px solid rgba(20,23,19,.14)">
+  <div>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(28px,3.6vw,50px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px">Notre histoire</p>
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.8rem);font-weight:800;line-height:1.08;letter-spacing:-.045em;margin:0;color:#141713;max-width:24ch">De la pêche à la mouche au fumoir des Acacias.</h2>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(44px,6vw,92px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <img src="img/fumage5.webp" alt="Claude accroche les filets dans le fumoir" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 35%;border-radius:8px;animation:rise 1s both" />
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(30px,6vw,92px);align-items:flex-start">
+      <div style="flex:1 1 250px">
+        <p style="font-size:.68rem;font-weight:700;line-height:1.6;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 14px">Fleurier, Val-de-Travers</p>
+        <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0;max-width:34ch">Une maison individuelle, un fumoir, et la rivière à quelques pas.</p>
+      </div>
+      <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:clamp(26px,3.4vw,42px)">
+        <sc-for list="{{ storyBlocks }}" as="b" hint-placeholder-count="4">
+          <div style="animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 24%">
+            <h2 style="font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:800;line-height:1.2;letter-spacing:-.04em;margin:0 0 16px;color:#141713">{{ b.titre }}</h2>
+            <p style="font-size:clamp(1.04rem,1.25vw,1.16rem);font-weight:400;line-height:1.78;color:#141713;margin:0;max-width:62ch">{{ b.texte }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#FDFBF6;border-top:1px solid rgba(20,23,19,.12);padding:clamp(50px,7.5vw,116px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,72px);align-items:center">
+      <div style="flex:1 1 320px">
+        <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 20px">La philosophie</p>
+        <h2 style="font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;line-height:1.12;letter-spacing:-.045em;margin:0 0 20px;color:#141713">Petites quantités,<br />geste constant.</h2>
+        <p style="font-size:clamp(1.02rem,1.2vw,1.14rem);font-weight:400;line-height:1.78;color:#141713;margin:0 0 14px;max-width:54ch">Nous ne cherchons pas le volume. Chaque fournée est préparée à la main, dans un atelier homologué par le Service cantonal de la consommation et des affaires vétérinaires, et repose le temps qu'il faut.</p>
+        <p style="font-size:1.02rem;font-weight:300;line-height:1.78;color:#141713;margin:0;max-width:54ch">Nos produits partent chez quelques restaurateurs et commerces de la région, sur les marchés, et lors de manifestations publiques ou privées.</p>
+      </div>
+      <div style="flex:1 1 300px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,16px)">
+        <img src="img/sel.webp" alt="Le sel" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px" />
+        <img src="img/claude4.webp" alt="Claude, l'artisan" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 30%;border-radius:6px;margin-top:clamp(0px,3vw,40px)" />
+      </div>
+    </div>
+  </section>
+  </div>
+</section>
+</sc-if>
+
+<!-- ════════ RECETTES ════════ -->
+<sc-if value="{{ isRecettes }}">
+<main>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Recettes</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Des idées simples,<br />pour le mettre en valeur.</h1>
+      <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Quatre façons de servir le saumon fumé, de l'apéritif improvisé au plat de fête. Rien de compliqué : le produit fait le travail.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(18px,2.4vw,30px)">
+      <sc-for list="{{ recipes }}" as="r" hint-placeholder-count="4">
+        <article style="display:flex;flex-direction:column;background:#FDFBF6;border-radius:6px;overflow:hidden;border:1px solid rgba(20,23,19,.14);animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 22%">
+          <div style="aspect-ratio:3/2;background:{{ r.bg }};overflow:hidden">
+            <img src="img/degustation.webp" alt="{{ r.titre }}" style="width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+          </div>
+          <div style="padding:clamp(20px,2.2vw,30px);display:flex;flex-direction:column;gap:14px;flex:1">
+            <div style="display:flex;gap:12px;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12554F">
+              <span>{{ r.temps }}</span><span>·</span><span>{{ r.difficulte }}</span>
+            </div>
+            <h2 style="font-size:clamp(1.2rem,1.7vw,1.46rem);font-weight:800;line-height:1.26;letter-spacing:-.032em;margin:0;color:#141713">{{ r.titre }}</h2>
+            <p style="font-size:.97rem;font-weight:400;line-height:1.68;color:#141713;margin:0;flex:1">{{ r.court }}</p>
+            <button onClick="{{ r.open }}" style="align-self:flex-start;background:none;border:none;border-bottom:2px solid #C3A15A;padding:0 0 8px;cursor:pointer;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;transition:color .3s" style-hover="color:#12554F">Découvrir la recette</button>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ RECETTE DÉTAIL ════════ -->
+<sc-if value="{{ isRecette }}">
+<main>
+  <section style="padding:clamp(26px,3.6vw,46px) clamp(20px,5vw,60px) 0">
+    <div style="max-width:1340px;margin:0 auto">
+      <button onClick="{{ goRecettes }}" style="background:none;border:none;padding:0;cursor:pointer;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#12554F">← Toutes les recettes</button>
+    </div>
+  </section>
+
+  <section style="padding:clamp(26px,3.6vw,52px) clamp(20px,5vw,60px) clamp(40px,6vw,80px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(26px,4vw,68px);align-items:flex-start">
+      <div style="flex:1 1 320px;animation:rise 1s both">
+        <div style="position:relative;aspect-ratio:4/5;background:{{ recette.bg }};overflow:hidden;border-radius:8px">
+          <img src="img/degustation.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+        </div>
+      </div>
+      <div style="flex:1 1 340px;animation:rise 1s .1s both">
+        <p style="font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#12554F;margin:0 0 20px">Recette</p>
+        <h1 style="font-size:clamp(1.9rem,4.2vw,3.2rem);font-weight:800;line-height:1.08;letter-spacing:-.048em;margin:0 0 22px;color:#141713">{{ recette.titre }}</h1>
+        <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0 0 28px;max-width:54ch">{{ recette.intro }}</p>
+        <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:1px;background:rgba(20,23,19,.16);border:1px solid rgba(20,23,19,.16);margin:0 0 32px">
+          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Temps</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.temps }}</dd></div>
+          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Difficulté</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.difficulte }}</dd></div>
+          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Pour</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.personnes }}</dd></div>
+          <div style="background:#F4F1EC;padding:18px 20px"><dt style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 9px">Produit</dt><dd style="font-size:.97rem;font-weight:400;margin:0;color:#141713">{{ recette.produit }}</dd></div>
+        </dl>
+        <h2 style="font-size:1.18rem;font-weight:800;line-height:1.3;letter-spacing:-.035em;margin:0 0 14px;color:#141713">Ingrédients</h2>
+        <ul style="margin:0 0 32px;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(20,23,19,.16)">
+          <sc-for list="{{ recette.ingredients }}" as="i" hint-placeholder-count="6">
+            <li style="font-size:1.02rem;font-weight:400;line-height:1.6;color:#141713;border-bottom:1px solid rgba(20,23,19,.12);padding:11px 0">{{ i }}</li>
+          </sc-for>
+        </ul>
+        <h2 style="font-size:1.18rem;font-weight:800;line-height:1.3;letter-spacing:-.035em;margin:0 0 20px;color:#141713">Préparation</h2>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:20px">
+          <sc-for list="{{ recette.etapes }}" as="e" hint-placeholder-count="4">
+            <li style="display:flex;gap:18px;align-items:flex-start">
+              <span style="flex:0 0 auto;font-size:1.55rem;font-weight:800;line-height:1.1;color:#C3A15A;letter-spacing:-.05em;width:1.6em">{{ e.n }}</span>
+              <p style="font-size:1.04rem;font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:56ch">{{ e.t }}</p>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#12554F;padding:clamp(44px,6.5vw,92px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between">
+      <p style="font-size:clamp(1.24rem,2.2vw,1.72rem);font-weight:800;line-height:1.3;letter-spacing:-.04em;margin:0;max-width:34ch;color:#FFFFFF">{{ recette.cta }}</p>
+      <a href="#" onClick="{{ goResa }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#12554F;background:#FFFFFF;padding:20px 32px;transition:background .35s" style-hover="background:#E3C889;color:#12554F">Commander votre saumon</a>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ ÉVÉNEMENTS ════════ -->
+<sc-if value="{{ isEvents }}">
+<main>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Nos événements</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Marchés, fêtes,<br />et portes ouvertes.</h1>
+      <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Le fumoir sort de son atelier plusieurs fois par an. C'est la meilleure occasion de goûter les quatre saumons côte à côte — et de repartir avec.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(48px,7vw,104px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(12px,1.6vw,20px)">
+      <sc-for list="{{ events }}" as="e" hint-placeholder-count="5">
+        <a href="#" onClick="{{ e.open }}" style="display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,40px);align-items:center;background:#FDFBF6;border:1px solid rgba(20,23,19,.14);border-radius:6px;padding:clamp(22px,2.8vw,36px);transition:border-color .35s;color:#141713;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 20%" style-hover="border-color:#C3A15A;color:#141713">
+          <div style="flex:0 0 auto;min-width:5.6em">
+            <p style="font-size:clamp(1.5rem,2.6vw,2.05rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:#12554F;margin:0 0 6px">{{ e.jour }}</p>
+            <p style="font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#A8742F;margin:0">{{ e.mois }}</p>
+          </div>
+          <div style="flex:1 1 260px">
+            <h2 style="font-size:clamp(1.18rem,1.8vw,1.46rem);font-weight:800;line-height:1.26;letter-spacing:-.034em;margin:0 0 8px;color:#141713">{{ e.nom }}</h2>
+            <p style="font-size:.97rem;font-weight:400;line-height:1.65;color:#141713;margin:0;max-width:52ch">{{ e.desc }}</p>
+          </div>
+          <div style="flex:0 1 210px">
+            <p style="font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#A8742F;margin:0 0 8px">Lieu</p>
+            <p style="font-size:.97rem;font-weight:500;line-height:1.6;color:#141713;margin:0">{{ e.lieu }}</p>
+            <p style="font-size:.92rem;font-weight:400;line-height:1.6;color:#141713;margin:4px 0 0">{{ e.horaire }}</p>
+          </div>
+          <span style="flex:0 0 auto;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#12554F">Détails →</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="border-top:1px solid rgba(20,23,19,.16);padding-top:clamp(28px,4vw,52px);margin-bottom:clamp(24px,3.2vw,40px)">
+        <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.14;letter-spacing:-.045em;margin:0 0 14px;color:#141713">Où trouver nos produits<br />toute l'année.</h2>
+        <p style="font-size:1.04rem;font-weight:400;line-height:1.72;color:#141713;margin:0;max-width:52ch">Quelques commerces et restaurants de la région nous font confiance.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:rgba(20,23,19,.16);border:1px solid rgba(20,23,19,.16)">
+        <sc-for list="{{ pointsVente }}" as="pv" hint-placeholder-count="6">
+          <div style="background:#FDFBF6;padding:clamp(22px,2.8vw,34px);display:flex;flex-direction:column;gap:9px;transition:background .35s" style-hover="background:#F4F1EC">
+            <p style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0">{{ pv.lieu }}</p>
+            <h3 style="font-size:clamp(1.1rem,1.5vw,1.28rem);font-weight:800;line-height:1.3;letter-spacing:-.032em;margin:0;color:#141713">{{ pv.nom }}</h3>
+            <p style="font-size:.95rem;font-weight:400;line-height:1.6;color:#141713;margin:0">{{ pv.type }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ SELF-SERVICE ════════ -->
+<sc-if value="{{ isSelf }}">
+<main>
+  <section style="padding:0 clamp(10px,2.4vw,30px)">
+    <div style="position:relative;max-width:1400px;margin:0 auto;height:clamp(320px,50vh,540px);overflow:hidden;border-radius:10px;background:#141713">
+      <img src="img/saumon3.webp" alt="Le libre-service du fumoir des Acacias" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.34),rgba(20,23,19,.84))"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,4.4vw,56px)">
+        <p style="font-size:.74rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#E3C889;margin:0 0 16px;animation:rise .9s both">Ouvert 7 jours sur 7</p>
+        <h1 style="font-size:clamp(1.9rem,5vw,3.9rem);font-weight:800;line-height:1.06;letter-spacing:-.045em;color:#FFFFFF;margin:0;max-width:20ch;animation:rise 1.1s .1s both">Le self-service du fumoir</h1>
+        <p style="font-size:clamp(1rem,1.5vw,1.22rem);font-weight:500;line-height:1.55;color:#FFFFFF;margin:14px 0 0;max-width:46ch;animation:rise 1.1s .22s both">Chemin des Acacias 10, 2114 Fleurier · Accès libre, en continu</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(48px,7vw,110px) clamp(20px,5vw,60px) 0">
+    <div style="max-width:68ch;margin:0 auto">
+      <p style="font-size:clamp(1.1rem,1.5vw,1.32rem);font-weight:400;line-height:1.72;color:#141713;margin:0">Vous n'avez pas besoin de nous appeler, ni d'attendre un jour de marché. Le frigo en libre-service est installé devant l'atelier, au chemin des Acacias 10 : il est rempli chaque matin avec les plaquettes du moment, et il reste accessible toute la journée, tous les jours de l'année.</p>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,6vw,92px) clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.12;letter-spacing:-.045em;margin:0 0 clamp(26px,3.6vw,44px);color:#141713">Comment ça marche.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(16px,2.2vw,26px)">
+        <sc-for list="{{ selfSteps }}" as="st" hint-placeholder-count="4">
+          <div style="background:#FDFBF6;border:1px solid rgba(20,23,19,.14);border-radius:6px;padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;gap:12px;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 20%">
+            <span style="font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:#C3A15A">{{ st.n }}</span>
+            <h3 style="font-size:clamp(1.12rem,1.6vw,1.32rem);font-weight:800;line-height:1.26;letter-spacing:-.032em;margin:0;color:#141713">{{ st.titre }}</h3>
+            <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0">{{ st.texte }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(24px,3.6vw,56px);align-items:flex-start">
+      <div style="flex:1 1 320px">
+        <h2 style="font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:800;line-height:1.14;letter-spacing:-.045em;margin:0 0 20px;color:#141713">Ce que vous y trouvez.</h2>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(20,23,19,.16)">
+          <sc-for list="{{ selfStock }}" as="it" hint-placeholder-count="5">
+            <li style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(20,23,19,.12)">
+              <span style="font-size:1.02rem;font-weight:500;color:#141713">{{ it.nom }}</span>
+              <span style="font-size:.96rem;font-weight:400;color:#141713">{{ it.detail }}</span>
+            </li>
+          </sc-for>
+        </ul>
+        <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:20px 0 0;max-width:52ch">La disponibilité dépend des fournées. Pour un filet entier ou une grande quantité, passez plutôt par la commande — nous le préparons pour vous.</p>
+      </div>
+      <div style="flex:1 1 300px;background:#12554F;border-radius:8px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#E3C889;margin:0">Venir au self-service</p>
+        <p style="font-size:1.08rem;font-weight:500;line-height:1.6;color:#FFFFFF;margin:0">Chemin des Acacias 10<br />2114 Fleurier, Suisse</p>
+        <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#FFFFFF;margin:0">À cinq minutes à pied de la gare de Fleurier. Stationnement possible devant la maison.</p>
+        <a href="https://maps.google.com/?q=Chemin+des+Acacias+10,+2114+Fleurier" target="_blank" rel="noopener" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;background:#FFFFFF;padding:19px 28px;text-align:center;transition:background .35s" style-hover="background:#C3A15A;color:#141713">Ouvrir l'itinéraire</a>
+        <a href="#" onClick="{{ goResa }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;border:1px solid rgba(255,255,255,.45);padding:18px 28px;text-align:center;transition:background .35s" style-hover="background:rgba(255,255,255,.14);color:#FFFFFF">Commander à l'avance</a>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ ÉVÉNEMENT DÉTAIL ════════ -->
+<sc-if value="{{ isEvent }}">
+<main>
+  <section style="padding:0 clamp(10px,2.4vw,30px)">
+    <div style="position:relative;max-width:1400px;margin:0 auto;height:clamp(320px,50vh,540px);overflow:hidden;border-radius:10px;background:#141713">
+      <img src="{{ evenement.photoSrc }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.32),rgba(20,23,19,.82))"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,4.4vw,56px)">
+        <p style="font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#E3C889;margin:0 0 16px;animation:rise .9s both">{{ evenement.date }}</p>
+        <h1 style="font-size:clamp(1.9rem,5vw,3.8rem);font-weight:800;line-height:1.06;letter-spacing:-.045em;color:#FFFFFF;margin:0;max-width:20ch;animation:rise 1.1s .1s both">{{ evenement.nom }}</h1>
+        <p style="font-size:clamp(1rem,1.5vw,1.22rem);font-weight:500;line-height:1.55;color:#FFFFFF;margin:14px 0 0;max-width:46ch;animation:rise 1.1s .22s both">{{ evenement.lieu }} · {{ evenement.horaire }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(26px,3.4vw,44px) clamp(20px,5vw,60px) 0">
+    <div style="max-width:1340px;margin:0 auto">
+      <button onClick="{{ goEvents }}" style="background:none;border:none;padding:0;cursor:pointer;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#12554F">← Tous les événements</button>
+    </div>
+  </section>
+
+  <section style="padding:clamp(28px,4vw,60px) clamp(20px,5vw,60px) clamp(56px,8vw,120px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,4.4vw,72px);align-items:flex-start">
+      <div style="flex:1 1 400px;display:flex;flex-direction:column;gap:clamp(26px,3.4vw,42px)">
+        <p style="font-size:clamp(1.08rem,1.5vw,1.3rem);font-weight:400;line-height:1.72;color:#141713;margin:0;max-width:62ch">{{ evenement.intro }}</p>
+
+        <div>
+          <h2 style="font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:800;line-height:1.2;letter-spacing:-.04em;margin:0 0 20px;color:#141713">Le déroulé de la journée</h2>
+          <div style="display:flex;flex-direction:column;border-top:1px solid rgba(20,23,19,.16)">
+            <sc-for list="{{ evenement.prog }}" as="pg" hint-placeholder-count="4">
+              <div style="display:flex;flex-wrap:wrap;gap:clamp(12px,2.4vw,32px);padding:16px 0;border-bottom:1px solid rgba(20,23,19,.12)">
+                <span style="flex:0 0 auto;min-width:9em;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#A8742F">{{ pg.h }}</span>
+                <span style="flex:1 1 240px;font-size:1.02rem;font-weight:400;line-height:1.7;color:#141713">{{ pg.t }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#12554F;border-radius:8px;padding:clamp(22px,2.8vw,34px)">
+          <p style="font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#E3C889;margin:0 0 12px">Bon à savoir</p>
+          <p style="font-size:1.04rem;font-weight:400;line-height:1.72;color:#FFFFFF;margin:0;max-width:56ch">{{ evenement.note }}</p>
+        </div>
+      </div>
+
+      <aside style="flex:1 1 300px;display:flex;flex-direction:column;gap:20px">
+        <dl style="margin:0;display:grid;grid-template-columns:1fr;gap:1px;background:rgba(20,23,19,.16);border:1px solid rgba(20,23,19,.16)">
+          <sc-for list="{{ evenement.infos }}" as="inf" hint-placeholder-count="5">
+            <div style="background:#FDFBF6;padding:18px 20px">
+              <dt style="font-size:.64rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#A8742F;margin:0 0 8px">{{ inf.k }}</dt>
+              <dd style="font-size:1rem;font-weight:500;line-height:1.5;color:#141713;margin:0">{{ inf.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+        <a href="#" onClick="{{ goResa }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;background:#12554F;padding:20px 28px;text-align:center;transition:background .35s" style-hover="background:#0C3B37;color:#FFFFFF">Commander votre saumon</a>
+        <a href="tel:0795045980" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;border:1px solid rgba(20,23,19,.3);padding:18px 28px;text-align:center;transition:background .35s" style-hover="background:#FDFBF6;color:#141713">Une question : 079 504 59 80</a>
+      </aside>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ RÉSERVATION ════════ -->
+<sc-if value="{{ isResa }}">
+<main>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(28px,3.6vw,48px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Commande</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Commandez<br />votre saumon.</h1>
+      <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Composez votre commande ci-dessous : nous préparons un e-mail prêt à envoyer, avec le récapitulatif. Aucun paiement en ligne, et aucune expédition — le retrait se fait en main propre à Fleurier ou à Bôle, où vous réglez sur place.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(24px,3.4vw,52px);align-items:flex-start">
+      <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+        <div>
+          <p style="font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#A8742F;margin:0 0 16px">1 — Vos saumons</p>
+          <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0 0 14px;max-width:58ch">Tous nos saumons sont vendus au poids, au prix indiqué sur chaque produit. Les plaquettes sont découpées à la main : le poids annoncé est approximatif (une plaquette de 200 g pèse en général entre 180 et 220 g). Le prix final est calculé au poids réel, à la pesée.</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ resaLines }}" as="l" hint-placeholder-count="4">
+              <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#FDFBF6;border:1px solid {{ l.border }};border-radius:6px;padding:clamp(14px,1.8vw,20px);transition:border-color .3s">
+                <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:5px">
+                  <span style="font-size:clamp(1.02rem,1.4vw,1.18rem);font-weight:800;letter-spacing:-.032em;color:#141713">{{ l.nom }}</span>
+                  <span style="font-size:.84rem;font-weight:500;color:{{ l.color }}">{{ l.eyebrow }}</span>
+                </div>
+                <select value="{{ l.format }}" onChange="{{ l.setFormat }}" aria-label="Format pour {{ l.nom }}" style="flex:0 1 200px;background:#F4F1EC;border:1px solid rgba(20,23,19,.24);padding:13px 12px;font-size:.92rem;font-weight:400;min-height:44px;border-radius:4px;color:#141713">
+                  <sc-for list="{{ formats }}" as="f" hint-placeholder-count="3">
+                    <option value="{{ f }}">{{ f }}</option>
+                  </sc-for>
+                </select>
+                <div style="flex:0 0 auto;display:flex;align-items:center;border:1px solid rgba(20,23,19,.24);border-radius:4px;overflow:hidden">
+                  <button onClick="{{ l.dec }}" aria-label="Retirer une unité" style="background:#F4F1EC;border:none;width:44px;height:44px;cursor:pointer;font-size:1.15rem;font-weight:700;color:#141713">−</button>
+                  <span style="min-width:46px;text-align:center;font-size:1.02rem;font-weight:700;color:#141713">{{ l.qte }}</span>
+                  <button onClick="{{ l.inc }}" aria-label="Ajouter une unité" style="background:#F4F1EC;border:none;width:44px;height:44px;cursor:pointer;font-size:1.15rem;font-weight:700;color:#141713">+</button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#A8742F;margin:0 0 16px">2 — Le retrait</p>
+          <div style="border:2px solid #12554F;border-radius:6px;padding:clamp(16px,2vw,22px);margin:0 0 16px;display:flex;flex-direction:column;gap:8px">
+            <p style="font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0">Pas de livraison — retrait sur place</p>
+            <p style="font-size:1rem;font-weight:400;line-height:1.7;color:#141713;margin:0;max-width:56ch">Nos produits ne sont pas expédiés : la chaîne du froid ne peut pas être garantie par la poste. Votre commande se retire en main propre, à <strong style="font-weight:700">Fleurier</strong> ou à <strong style="font-weight:700">Bôle</strong>.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px">
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Date souhaitée</span>
+              <input type="date" value="{{ form.date }}" onChange="{{ setDate }}" style="background:#FDFBF6;border:1px solid rgba(20,23,19,.24);padding:14px 14px;font-size:.98rem;min-height:44px;border-radius:4px;color:#141713" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Lieu de retrait</span>
+              <select value="{{ form.lieu }}" onChange="{{ setLieu }}" style="background:#FDFBF6;border:1px solid rgba(20,23,19,.24);padding:14px 12px;font-size:.98rem;min-height:44px;border-radius:4px;color:#141713">
+                <sc-for list="{{ lieux }}" as="lx" hint-placeholder-count="3">
+                  <option value="{{ lx }}">{{ lx }}</option>
+                </sc-for>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#12554F;margin:0 0 16px">3 — Vos coordonnées</p>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px">
+              <label style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Nom et prénom</span>
+                <input type="text" value="{{ form.nom }}" onChange="{{ setNom }}" placeholder="Jean Dupont" style="background:#FDFBF6;border:1px solid rgba(20,23,19,.24);padding:14px;font-size:.98rem;min-height:44px;border-radius:4px;color:#141713" />
+              </label>
+              <label style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Téléphone</span>
+                <input type="tel" value="{{ form.tel }}" onChange="{{ setTel }}" placeholder="079 000 00 00" style="background:#FDFBF6;border:1px solid rgba(20,23,19,.24);padding:14px;font-size:.98rem;min-height:44px;border-radius:4px;color:#141713" />
+              </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Remarque (facultatif)</span>
+              <textarea value="{{ form.note }}" onChange="{{ setNote }}" rows="3" placeholder="Tranchage épais, emballage cadeau, allergies…" style="background:#FDFBF6;border:1px solid rgba(20,23,19,.24);padding:14px;font-size:.98rem;border-radius:4px;resize:vertical;color:#141713"></textarea>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <aside style="flex:1 1 320px;position:sticky;top:clamp(90px,12vw,124px);background:#141713;border-radius:8px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:18px">
+        <p style="font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E3C889;margin:0">Votre commande</p>
+        <div style="display:flex;flex-direction:column;gap:12px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:18px">
+          <sc-if value="{{ resaEmpty }}" hint-placeholder-val="{{ true }}">
+            <p style="font-size:.98rem;font-weight:400;line-height:1.6;color:#FFFFFF;margin:0">Choisissez au moins un saumon pour composer votre e-mail.</p>
+          </sc-if>
+          <sc-for list="{{ resaSummary }}" as="s" hint-placeholder-count="0">
+            <div style="display:flex;justify-content:space-between;gap:14px">
+              <span style="font-size:.98rem;font-weight:500;line-height:1.5;color:#FFFFFF">{{ s.label }}</span>
+              <span style="font-size:.98rem;font-weight:700;color:#E3C889;white-space:nowrap">× {{ s.qte }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:.95rem;font-weight:400;color:#FFFFFF">{{ resaRetrait }}</span>
+          <span style="font-size:.95rem;font-weight:400;color:#FFFFFF">{{ resaContact }}</span>
+        </div>
+        <a href="{{ mailtoHref }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#141713;background:#FFFFFF;padding:20px 26px;text-align:center;transition:background .35s;opacity:{{ mailtoOpacity }}" style-hover="background:#C3A15A;color:#141713">Créer mon e-mail de commande</a>
+        <p style="font-size:.88rem;font-weight:300;line-height:1.6;color:#FFFFFF;margin:0">Votre logiciel de messagerie s'ouvre avec le récapitulatif déjà rédigé. Vous n'avez plus qu'à l'envoyer.</p>
+        <a href="tel:0795045980" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;border:1px solid rgba(255,255,255,.45);padding:18px 26px;text-align:center;transition:background .35s" style-hover="background:rgba(255,255,255,.14);color:#FFFFFF">Ou appeler 079 504 59 80</a>
+      </aside>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<!-- ════════ CONTACT ════════ -->
+<sc-if value="{{ isContact }}">
+<main>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(28px,3.6vw,48px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Contact</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0;color:#141713;max-width:20ch;animation:rise 1s .08s both">Écrivez-nous,<br />ou passez.</h1>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
+    <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,76px);align-items:flex-start">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:clamp(22px,2.8vw,34px)">
+        <div>
+          <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 12px">Atelier</p>
+          <p style="font-size:1.1rem;font-weight:400;line-height:1.7;color:#141713;margin:0">Saumon Fumé des Acacias<br />Chemin des Acacias 10<br />2114 Fleurier, Suisse</p>
+        </div>
+        <div>
+          <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 12px">Téléphone</p>
+          <a href="tel:0795045980" style="font-size:1.1rem;font-weight:500;line-height:1.7;color:#141713">079 504 59 80</a>
+        </div>
+        <div>
+          <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 12px">E-mail</p>
+          <a href="mailto:info@saumonfumedesacacias.ch" style="font-size:1.1rem;font-weight:500;line-height:1.7;color:#141713;word-break:break-word">info@saumonfumedesacacias.ch</a>
+        </div>
+        <div>
+          <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 12px">Visites et retraits</p>
+          <p style="font-size:1.02rem;font-weight:400;line-height:1.72;color:#141713;margin:0;max-width:36ch">Sur rendez-vous téléphonique. Pensez à appeler quelques jours à l'avance pour les grandes quantités et les fêtes.</p>
+        </div>
+      </div>
+
+      <div style="flex:1 1 380px;background:#FDFBF6;border:1px solid rgba(20,23,19,.14);border-radius:8px;padding:clamp(24px,3.2vw,44px)">
+        <h2 style="font-size:clamp(1.34rem,2.2vw,1.72rem);font-weight:800;line-height:1.2;letter-spacing:-.038em;margin:0 0 10px;color:#141713">Une question ?</h2>
+        <p style="font-size:1rem;font-weight:400;line-height:1.7;color:#141713;margin:0 0 26px">Écrivez-nous en deux lignes : nous répondons rapidement. Pour une commande, passez plutôt par la page réservation.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Nom et prénom</span>
+            <input type="text" value="{{ contact.nom }}" onChange="{{ setContactNom }}" style="background:#F4F1EC;border:1px solid rgba(20,23,19,.24);padding:14px;font-size:.98rem;min-height:44px;border-radius:4px;color:#141713" />
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#141713">Votre message</span>
+            <textarea value="{{ contact.msg }}" onChange="{{ setContactMsg }}" rows="5" style="background:#F4F1EC;border:1px solid rgba(20,23,19,.24);padding:14px;font-size:.98rem;border-radius:4px;resize:vertical;color:#141713"></textarea>
+          </label>
+          <a href="{{ contactMailto }}" style="font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF;background:#12554F;padding:20px 30px;text-align:center;align-self:flex-start;transition:background .35s" style-hover="background:#0C3B37;color:#FFFFFF">Envoyer par e-mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<footer style="background:#141713;padding:clamp(44px,6.5vw,96px) clamp(20px,5vw,60px) clamp(26px,3.4vw,44px)">
+  <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,4.5vw,72px)">
+    <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:18px">
+      <img src="uploads/saumon-or.png" alt="" style="width:clamp(110px,14vw,160px);height:auto" />
+      <p style="font-size:1.02rem;font-weight:400;line-height:1.7;color:#FFFFFF;margin:0;max-width:34ch">Saumon atlantique fumé à froid, façonné à la main à Fleurier, Val-de-Travers.</p>
+    </div>
+    <div style="flex:1 1 180px;display:flex;flex-direction:column;gap:12px">
+      <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E3C889;margin:0">Le site</p>
+      <sc-for list="{{ footerItems }}" as="n" hint-placeholder-count="8">
+        <a href="#" onClick="{{ n.go }}" style="font-size:.98rem;font-weight:400;color:#FFFFFF" style-hover="color:#E3C889">{{ n.label }}</a>
+      </sc-for>
+    </div>
+    <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:12px">
+      <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E3C889;margin:0">Nous trouver</p>
+      <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#FFFFFF;margin:0">Chemin des Acacias 10<br />2114 Fleurier, Suisse</p>
+      <a href="tel:0795045980" style="font-size:.98rem;font-weight:500;color:#FFFFFF" style-hover="color:#E3C889">079 504 59 80</a>
+      <a href="mailto:info@saumonfumedesacacias.ch" style="font-size:.98rem;font-weight:500;color:#FFFFFF;word-break:break-word" style-hover="color:#E3C889">info@saumonfumedesacacias.ch</a>
+    </div>
+  </div>
+  <div style="max-width:1340px;margin:clamp(28px,3.6vw,52px) auto 0;border-top:1px solid rgba(255,255,255,.2);padding-top:22px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between">
+    <span style="font-size:.86rem;font-weight:300;color:#FFFFFF">© 2026 Saumon Fumé des Acacias — Fleurier</span>
+    <span style="font-size:.86rem;font-weight:300;color:#FFFFFF">Atelier homologué SCAV — Canton de Neuchâtel</span>
+    <a href="https://www.instagram.com/lestudio_nono/" target="_blank" rel="noopener" style="font-size:.86rem;font-weight:300;color:#FFFFFF" style-hover="color:#E3C889">Site créé par @lestudio_nono</a>
+  </div>
+</footer>
+
+<sc-if value="{{ showMobileBar }}">
+  <div style="height:76px;background:#141713"></div>
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:70;background:#E6E1D6;border-top:1px solid rgba(20,23,19,.12);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -6px 20px rgba(20,23,19,.12)">
+    <a href="#" onClick="{{ goResa }}" style="display:flex;align-items:center;justify-content:center;min-height:52px;background:#12554F;color:#FFFFFF;font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border-radius:4px">Commander votre saumon</a>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    page: 'accueil', recetteId: 0, eventId: 0, menuOpen: false, w: 1200,
+    qte: [0, 0, 0, 0],
+    fmt: ['Plaquette tranchée env. 200 g', 'Plaquette tranchée env. 200 g', 'Plaquette tranchée env. 200 g', 'Plaquette tranchée env. 200 g'],
+    form: { date: '', lieu: "Fleurier — Chemin des Acacias 10 (self-service 7j/7)", nom: '', tel: '', note: '' },
+    contact: { nom: '', msg: '' }
+  };
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+
+  go(page) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ page: page, menuOpen: false });
+      window.scrollTo(0, 0);
+    };
+  }
+  openRecette(i) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ page: 'recette', recetteId: i, menuOpen: false });
+      window.scrollTo(0, 0);
+    };
+  }
+  openEvent(i) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ page: 'event', eventId: i, menuOpen: false });
+      window.scrollTo(0, 0);
+    };
+  }
+
+  products() {
+    return [
+      {
+        nom: 'Original', eyebrow: 'Le classique', color: '#1F6F62',
+        label: 'uploads/Original.jpg', photo: 'img/tranchage1.webp',
+        photoAlt: 'Tranchage du saumon fumé Original',
+        court: "Sel, fumée, patience. La recette de la maison, sans détour.",
+        long: "Notre première recette et toujours la plus demandée. Filet d'atlantique paré à la main, salé au sel sec, puis fumé à froid plusieurs heures. Rien d'autre.",
+        degustation: "Sur un pain de seigle beurré, avec un tour de moulin. Un chasselas du lac ou une bière ambrée.",
+        prix: 'CHF 70.– / kg',
+        specs: [{ k: 'Origine', v: 'Norvège' }, { k: 'Fumage', v: 'À froid, copeaux de barriques Jack Daniel\'s' }, { k: 'Salage', v: 'Sel sec' }, { k: 'Tranché', v: 'Plaquettes sous vide env. 100 / 200 / 300 g' }, { k: 'Filet', v: 'Demi-filet ou entier, sur peau' }]
+      },
+      {
+        nom: 'Absinthe', eyebrow: 'Le terroir', color: '#5B7A2E',
+        label: 'uploads/Absinthe.jpg', photo: 'img/absinthe.webp',
+        photoAlt: "Absinthe versée sur le filet de saumon",
+        court: "Arrosé d'absinthe du Val-de-Travers avant le fumage.",
+        long: "Une signature locale : le filet est arrosé d'absinthe distillée dans la vallée avant de partir au fumoir. L'anis ne couvre pas le poisson, il l'allonge — une amertume fraîche en fin de bouche.",
+        degustation: "Nature, en fines tranches, avec une pomme de terre tiède. Et un verre de bleue très allongée.",
+        prix: 'CHF 80.– / kg',
+        specs: [{ k: 'Origine', v: 'Norvège' }, { k: 'Fumage', v: 'À froid, copeaux de barriques Jack Daniel\'s' }, { k: 'Aromate', v: 'Absinthe du Val-de-Travers' }, { k: 'Tranché', v: 'Plaquettes sous vide env. 100 / 200 / 300 g' }, { k: 'Filet', v: 'Demi-filet ou entier, sur peau' }]
+      },
+      {
+        nom: 'Bio', eyebrow: "L'exigeant", color: '#1F6F62',
+        label: 'uploads/Bio.jpg', photo: 'img/salage.webp',
+        photoAlt: 'Salage au sel sec du filet bio',
+        court: "Élevage biologique certifié, même geste, chair plus ferme.",
+        long: "Issu d'élevages biologiques certifiés : densité réduite, alimentation contrôlée, croissance plus lente. La chair est plus ferme et le gras mieux réparti, ce qui change la tenue à la tranche.",
+        degustation: "En carpaccio épais, huile d'olive et fleur de sel. Idéal pour les tartares.",
+        prix: 'CHF 81.– / kg',
+        specs: [{ k: 'Origine', v: 'Irlande, bio' }, { k: 'Certification', v: 'Élevage biologique' }, { k: 'Fumage', v: 'À froid, copeaux de barriques Jack Daniel\'s' }, { k: 'Tranché', v: 'Plaquettes sous vide env. 100 / 200 / 300 g' }, { k: 'Filet', v: 'Demi-filet ou entier, sur peau' }]
+      },
+      {
+        nom: 'Label', eyebrow: "L'exception", color: '#8A2C33',
+        label: 'uploads/Label.jpg', photo: 'img/sel.webp',
+        photoAlt: 'Le sel de salage, premier ingrédient',
+        court: "Notre sélection de fête, en très petites quantités.",
+        long: "Des filets choisis un par un chez nos fournisseurs, plus gras et plus larges, fumés un peu plus longuement. Une production limitée, surtout disponible en fin d'année.",
+        degustation: "Tel quel, à température de cave, en tranches épaisses. Un champagne brut nature.",
+        prix: 'CHF 75.– / kg',
+        specs: [{ k: 'Origine', v: 'Écosse' }, { k: 'Fumage', v: 'À froid prolongé, copeaux de barriques Jack Daniel\'s' }, { k: 'Disponibilité', v: 'Saisonnière, limitée' }, { k: 'Tranché', v: 'Plaquettes sous vide env. 100 / 200 / 300 g' }, { k: 'Filet', v: 'Demi-filet ou entier, sur peau' }]
+      }
+    ];
+  }
+
+  recipesData() {
+    return [
+      {
+        titre: 'Tartines de seigle, crème à l\'aneth', temps: '10 min', difficulte: 'Très facile', personnes: '4 personnes',
+        produit: 'Original 200 g', bg: '#E9E3D4',
+        court: "Le geste le plus simple, et celui qu'on refait toute l'année.",
+        intro: "Pas une recette, presque un réflexe : du bon pain, une crème acidulée, et le saumon qu'on laisse en morceaux généreux plutôt qu'en lamelles.",
+        ingredients: ['200 g de saumon fumé Original', '4 tranches de pain de seigle', '150 g de séré ou crème épaisse', "1 petit bouquet d'aneth", '1/2 citron', 'Poivre du moulin'],
+        etapes: [
+          { n: '1', t: "Mélangez le séré avec l'aneth ciselé, le zeste et un filet de citron. Poivrez, ne salez pas : le saumon apporte déjà le sel." },
+          { n: '2', t: 'Toastez légèrement le pain de seigle, juste pour le tiédir.' },
+          { n: '3', t: 'Étalez la crème, déposez le saumon en larges morceaux, terminez par quelques pluches d\'aneth.' }
+        ],
+        cta: "Il vous manque le saumon ? Réservez le vôtre en deux minutes."
+      },
+      {
+        titre: 'Œufs mollets, saumon Absinthe', temps: '20 min', difficulte: 'Facile', personnes: '4 personnes',
+        produit: 'Absinthe 200 g', bg: '#DDE3D2',
+        court: "L'anis de l'absinthe contre le jaune coulant : un accord très net.",
+        intro: "Un brunch qui a l'air travaillé et qui ne l'est pas. Toute la réussite tient à la cuisson de l'œuf : six minutes, pas sept.",
+        ingredients: ['200 g de saumon fumé Absinthe', '4 œufs très frais', '4 tranches de pain grillé', '1 c. à s. de beurre', 'Ciboulette', 'Poivre du moulin'],
+        etapes: [
+          { n: '1', t: "Plongez les œufs 6 minutes dans l'eau bouillante, puis arrêtez la cuisson dans l'eau glacée et écalez délicatement." },
+          { n: '2', t: 'Beurrez le pain grillé et couvrez-le de saumon Absinthe.' },
+          { n: '3', t: "Posez l'œuf mollet dessus, ouvrez-le, poivrez et parsemez de ciboulette. Servez aussitôt." }
+        ],
+        cta: "Envie de tester l'accord absinthe ? Réservez votre plaquette."
+      },
+      {
+        titre: 'Tartare de saumon Bio, pomme verte', temps: '25 min', difficulte: 'Facile', personnes: '4 personnes',
+        produit: 'Bio 400 g', bg: '#E4E7DA',
+        court: "La chair ferme du Bio tient parfaitement le couteau.",
+        intro: "Un tartare coupé au couteau, pas au robot : on veut sentir la tranche. La pomme verte apporte le croquant et l'acidité, l'huile de noisette la rondeur.",
+        ingredients: ['400 g de saumon fumé Bio', '1 pomme verte acidulée', '1 échalote', '1 c. à s. d\'huile de noisette', '1/2 citron vert', 'Aneth, poivre'],
+        etapes: [
+          { n: '1', t: 'Coupez le saumon au couteau en cubes de 5 mm. Réservez au frais.' },
+          { n: '2', t: 'Taillez la pomme en petits dés, ciselez finement l\'échalote.' },
+          { n: '3', t: "Mélangez avec l'huile, le jus de citron vert et l'aneth. Poivrez." },
+          { n: '4', t: 'Dressez en cercle, laissez reposer 10 minutes au frais avant de servir.' }
+        ],
+        cta: "Le Bio se réserve à l'avance — c'est une petite production."
+      },
+      {
+        titre: 'Plateau de fête, saumon Label', temps: '30 min', difficulte: 'Facile', personnes: '6 à 8 personnes',
+        produit: 'Label, filet entier', bg: '#E7DCD6',
+        court: "Un filet entier posé sur la table, et rien d'autre à faire.",
+        intro: "Pour les fêtes, la meilleure recette est l'absence de recette : un filet entier, tranché devant les convives, avec trois ou quatre accompagnements bien choisis.",
+        ingredients: ['1 filet de saumon fumé Label', 'Pain de seigle et blinis', 'Beurre de baratte demi-sel', 'Citrons confits', 'Câpres, aneth, raifort', 'Pommes de terre grenaille tièdes'],
+        etapes: [
+          { n: '1', t: "Sortez le filet du froid 20 minutes avant de servir : les arômes de fumée s'ouvrent à température de cave." },
+          { n: '2', t: 'Disposez les accompagnements en petits bols séparés, sans surcharger la planche.' },
+          { n: '3', t: 'Tranchez à la demande, en biais et assez épais, en remontant vers la queue.' }
+        ],
+        cta: "Les filets entiers partent vite en décembre : réservez tôt."
+      }
+    ];
+  }
+
+  eventsData() {
+    return [
+      {
+        jour: '16', mois: 'Décembre 2026', date: 'Samedi 16 décembre 2026',
+        nom: 'Marché de Noël des Acacias', lieu: 'Chemin des Acacias, Fleurier', horaire: '09h00 – 18h00',
+        principal: true, photo: 'img/fumage2.webp',
+        desc: "Notre rendez-vous principal de l'année : stand du fumoir et réception des commandes de Noël.",
+        intro: "C'est le grand rendez-vous de l'année. Le marché de Noël s'installe au chemin des Acacias, à Fleurier, et nous y tenons le stand principal : les quatre saumons en dégustation, les filets entiers, les plaquettes — et surtout la réception des commandes pour les fêtes.",
+        infos: [
+          { k: 'Date', v: 'Samedi 16 décembre 2026' },
+          { k: 'Horaires', v: '09h00 – 18h00, sans interruption' },
+          { k: 'Lieu', v: 'Chemin des Acacias, 2114 Fleurier' },
+          { k: 'Accès', v: 'À 5 minutes à pied de la gare de Fleurier' },
+          { k: 'Entrée', v: 'Libre' },
+          { k: 'Paiement', v: 'Espèces et Twint sur place' }
+        ],
+        prog: [
+          { h: '09h00', t: "Ouverture du stand : dégustation des quatre recettes, Original, Absinthe, Bio et Label." },
+          { h: '10h30', t: "Démonstration de tranchage au couteau et explication du fumage à froid." },
+          { h: 'Toute la journée', t: "Réception des commandes de Noël : filets entiers et plaquettes, retrait entre le 21 et le 24 décembre." },
+          { h: '18h00', t: "Fermeture. Les commandes passées sur place sont confirmées par e-mail le soir même." }
+        ],
+        note: "C'est la dernière occasion de commander sereinement pour le 24 décembre. Passé ce samedi, les quantités disponibles dépendent de ce qu'il reste au fumoir."
+      },
+      {
+        jour: '17', mois: 'Octobre', date: 'Samedi 17 octobre', nom: 'Marché du terroir de Fleurier',
+        lieu: 'Place du Marché, Fleurier', horaire: '08h00 – 13h00', photo: 'img/degustation.webp',
+        desc: "Notre marché de proximité : les quatre saumons, à la plaquette ou au filet.",
+        intro: "Le marché du samedi matin, à deux pas de l'atelier. On y vient surtout pour la plaquette de la semaine, et pour discuter du prochain fumage.",
+        infos: [
+          { k: 'Date', v: 'Samedi 17 octobre' }, { k: 'Horaires', v: '08h00 – 13h00' },
+          { k: 'Lieu', v: 'Place du Marché, 2114 Fleurier' }, { k: 'Entrée', v: 'Libre' }
+        ],
+        prog: [
+          { h: '08h00', t: "Ouverture du stand avec les plaquettes tranchées du jour." },
+          { h: '11h00', t: "Dégustation libre de l'Original et de l'Absinthe." },
+          { h: '13h00', t: "Fin du marché." }
+        ],
+        note: "Les filets entiers sont disponibles sur réservation préalable uniquement."
+      },
+      {
+        jour: '08', mois: 'Novembre', date: 'Dimanche 8 novembre', nom: 'Fête du sel',
+        lieu: 'Buttes, Val-de-Travers', horaire: '10h00 – 18h00', photo: 'img/sel.webp',
+        desc: "La fête où tout part en un week-end. Dégustation sur place et vente directe.",
+        intro: "La Fête du sel de Buttes est une institution du Vallon — et pour nous, le week-end où tout part. Le sel y est célébré sous toutes ses formes : c'est le lieu idéal pour expliquer notre salage à sec.",
+        infos: [
+          { k: 'Date', v: 'Dimanche 8 novembre' }, { k: 'Horaires', v: '10h00 – 18h00' },
+          { k: 'Lieu', v: 'Village de Buttes, Val-de-Travers' }, { k: 'Entrée', v: 'Libre' }
+        ],
+        prog: [
+          { h: '10h00', t: "Ouverture du stand, dégustation des quatre saumons." },
+          { h: '14h00', t: "Atelier salage : comment le sel sec travaille la chair du saumon." },
+          { h: '18h00', t: "Fermeture — venez tôt, les stocks partent vite." }
+        ],
+        note: "Prévoyez une glacière si vous repartez avec un filet entier."
+      },
+      {
+        jour: '13', mois: 'Décembre', date: 'Dimanche 13 décembre', nom: 'Portes ouvertes du fumoir',
+        lieu: 'Chemin des Acacias 10, Fleurier', horaire: '09h00 – 16h00', photo: 'img/fumage5.webp',
+        desc: "Visite du fumoir, explication du salage et du fumage à froid, dégustation.",
+        intro: "Une journée pour ouvrir l'atelier : on montre la chambre de fumage, les filets en cours de salage, et on répond à toutes les questions sur le fumage à froid.",
+        infos: [
+          { k: 'Date', v: 'Dimanche 13 décembre' }, { k: 'Horaires', v: '09h00 – 16h00' },
+          { k: 'Lieu', v: 'Chemin des Acacias 10, 2114 Fleurier' }, { k: 'Entrée', v: 'Libre, sans inscription' }
+        ],
+        prog: [
+          { h: '09h00', t: "Ouverture de l'atelier, visite libre." },
+          { h: '11h00 et 14h00', t: "Visite guidée du fumoir : parage, salage, fumage, maturation." },
+          { h: '16h00', t: "Fermeture." }
+        ],
+        note: "L'atelier est petit : les visites guidées se font par groupes de huit personnes."
+      },
+      {
+        jour: '21', mois: 'Décembre', date: 'Du 21 au 24 décembre', nom: "Retraits de fin d'année",
+        lieu: 'Atelier, Chemin des Acacias 10, Fleurier', horaire: 'Sur rendez-vous', photo: 'img/saumon.webp',
+        desc: "Les journées de retrait des commandes de Noël, sur rendez-vous.",
+        intro: "Les quatre jours consacrés aux retraits des commandes de fin d'année. Chaque commande est tranchée et emballée le jour du retrait.",
+        infos: [
+          { k: 'Dates', v: 'Du 21 au 24 décembre' }, { k: 'Horaires', v: 'Sur rendez-vous téléphonique' },
+          { k: 'Lieu', v: "À l'atelier, Chemin des Acacias 10" }, { k: 'Commande', v: 'Indispensable, à passer avant le 16 décembre' }
+        ],
+        prog: [
+          { h: '21 – 23 décembre', t: "Retraits sur rendez-vous, de 09h00 à 18h00." },
+          { h: '24 décembre', t: "Derniers retraits le matin uniquement, jusqu'à 12h00." }
+        ],
+        note: "Aucune vente sans commande préalable durant ces journées."
+      }
+    ];
+  }
+
+  buildMailto() {
+    const p = this.products();
+    const s = this.state;
+    const lignes = [];
+    for (let i = 0; i < 4; i++) {
+      if (s.qte[i] > 0) lignes.push('- ' + p[i].nom + ' — ' + s.fmt[i] + ' × ' + s.qte[i]);
+    }
+    if (!lignes.length) return null;
+    const body = [
+      'Bonjour,',
+      '',
+      'Je souhaite commander :',
+      lignes.join('\n'),
+      '',
+      'Retrait souhaité : ' + (s.form.date || '(à convenir)'),
+      'Lieu de retrait : ' + s.form.lieu,
+      '(Retrait en main propre — pas de livraison postale)',
+      '',
+      'Nom : ' + (s.form.nom || '(à compléter)'),
+      'Téléphone : ' + (s.form.tel || '(à compléter)'),
+      s.form.note ? 'Remarque : ' + s.form.note : '',
+      '',
+      '(Poids indicatifs — le prix est calculé au poids réel, à la pesée.)',
+      '',
+      'Merci beaucoup et belle journée.'
+    ].filter(function (x) { return x !== undefined; }).join('\n');
+    const subject = 'Commande de saumon fumé' + (s.form.date ? ' — retrait le ' + s.form.date : '');
+    return 'mailto:info@saumonfumedesacacias.ch?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const p = this.products();
+    const recs = this.recipesData();
+    const evs = this.eventsData();
+    const set = (k) => (e) => this.setState({ form: Object.assign({}, this.state.form, { [k]: e.target.value }) });
+    const setC = (k) => (e) => this.setState({ contact: Object.assign({}, this.state.contact, { [k]: e.target.value }) });
+    const bump = (i, d) => () => {
+      const q = this.state.qte.slice();
+      q[i] = Math.max(0, Math.min(20, q[i] + d));
+      this.setState({ qte: q });
+    };
+    const mailto = this.buildMailto();
+    const summary = [];
+    for (let i = 0; i < 4; i++) {
+      if (s.qte[i] > 0) summary.push({ label: p[i].nom + ' — ' + s.fmt[i], qte: s.qte[i] });
+    }
+
+    const pages = [
+      ['Accueil', 'accueil'], ['Notre self-service', 'self'], ['Nos produits', 'produits'],
+      ['Savoir-faire et histoire', 'savoir'], ['Contact', 'contact'], ['Commander votre saumon', 'resa']
+    ];
+
+    return {
+      isDesktop: s.w >= 900,
+      isWide: s.w >= 1180,
+      showMobileBar: s.w < 900 && s.page !== 'resa' && !s.menuOpen,
+      isMobile: s.w < 900,
+      menuOpen: s.menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+
+      isAccueil: s.page === 'accueil', isProduits: s.page === 'produits', isSavoir: s.page === 'savoir',
+      isHistoire: s.page === 'savoir', isRecettes: s.page === 'recettes', isRecette: s.page === 'recette',
+      isEvents: s.page === 'events', isResa: s.page === 'resa', isContact: s.page === 'contact',
+
+      goAccueil: this.go('accueil'), goProduits: this.go('produits'), goSavoir: this.go('savoir'),
+      goHistoire: this.go('savoir'), goRecettes: this.go('recettes'), goEvents: this.go('events'),
+      goResa: this.go('resa'), goContact: this.go('contact'),
+
+      footerItems: pages.concat([['Recettes', 'recettes'], ['Événements', 'events']]).map((x) => ({
+        label: x[0], go: this.go(x[1]), color: '#FFFFFF'
+      })),
+      navItems: pages.map((x) => ({
+        label: x[0], go: this.go(x[1]),
+        color: x[1] === 'resa' ? '#E3C889' : (s.page === x[1] ? '#E3C889' : '#FFFFFF')
+      })),
+
+      marks: [
+        { titre: 'Fumé à froid', texte: 'Entre 0 et 20 degrés, sans aucune source de chaleur.' },
+        { titre: '4 saumons', texte: 'Original, Absinthe, Bio et Label — dont un à l\'absinthe du Val-de-Travers.' },
+        { titre: 'Salage au sel sec', texte: 'Pas de saumure, pas de fumée liquide, pas de conservateur.' },
+        { titre: 'Self-service 7j/7', texte: 'Chemin des Acacias 10, 2114 Fleurier. Retrait aussi à Bôle.' }
+      ],
+
+      products: p.map((x) => Object.assign({}, x, { labelSrc: x.label, photoSrc: x.photo })),
+      homeRecipes: recs.slice(0, 3).map((r, i) => ({
+        titre: r.titre, court: r.court, temps: r.temps, difficulte: r.difficulte, bg: r.bg, open: this.openRecette(i)
+      })),
+      recipes: recs.map((r, i) => ({
+        titre: r.titre, court: r.court, temps: r.temps, difficulte: r.difficulte, bg: r.bg, open: this.openRecette(i)
+      })),
+      recette: recs[s.recetteId],
+
+      steps: [
+        { num: '01', photoSrc: 'img/elevage.webp', titre: 'Sélection', texte: "Nous choisissons des filets d'atlantique chez des éleveurs de Norvège, d'Écosse et d'Irlande, filières parmi les plus contrôlées au monde. Le gras, la largeur et la fermeté décident.", duree: 'Livraison hebdomadaire', photo: 'uploads/Saumon_6.jpg', alt: 'Sélection et préparation' },
+        { num: '02', photoSrc: 'img/aretes.webp', titre: 'Préparation', texte: "Parage à la main : arêtes, parties grasses irrégulières, peau nettoyée. Rien n'est mécanisé, chaque filet passe entre les doigts.", duree: 'Environ 20 minutes par filet', photo: 'uploads/Saumon_2.jpg', alt: 'Parage du filet' },
+        { num: '03', photoSrc: 'img/salage.webp', titre: 'Salage', texte: "Salage au sel sec, jamais en saumure. La quantité s'adapte à l'épaisseur du filet : c'est l'étape qui décide de l'équilibre final.", duree: '12 à 18 heures', photo: 'uploads/Saumon_4.jpg', alt: 'Salage au sel sec' },
+        { num: '04', photoSrc: 'img/fumage1.webp', titre: 'Fumage', texte: "Fumée froide de copeaux de barriques de chêne Jack Daniel's, entre 0 et 20 degrés. Aucune source de chaleur dans la chambre : la météo du jour fait partie de la recette.", duree: '8 à 14 heures', photo: 'uploads/Saumon_1.jpg', alt: 'Fumage à froid' },
+        { num: '05', photoSrc: 'img/fumage4.webp', titre: 'Maturation', texte: "Repos au frais, à découvert. La fumée se fond dans la chair et l'humidité s'équilibre. C'est l'étape qu'on ne peut pas accélérer.", duree: '24 à 48 heures', photo: 'uploads/Saumon_5.jpg', alt: 'Maturation au frais' },
+        { num: '06', photoSrc: 'img/tranchage2.webp', titre: 'Préparation finale', texte: "Tranchage au couteau, mise sous vide en plaquette ou conditionnement du filet entier, étiquetage à la main.", duree: 'Le jour du retrait', photo: 'uploads/Saumon_2.jpg', alt: 'Tranchage et conditionnement' }
+      ],
+
+      storyBlocks: [
+        { titre: 'Une enfance au bord de l\'eau', texte: "À Fleurier, la rivière traverse le village. On y apprend la patience avant d'apprendre la pêche. Très vite, la mouche devient une manie, puis un prétexte à voyager." },
+        { titre: 'Les fleuves du Nord', texte: "La Suède, la Norvège, l'Écosse. La rivière Giman en 2001, puis 2002 avec un ami qui ne reviendra pas de ce voyage. Pendant des années, la pêche perd son goût. Puis la vie reprend le dessus et les rivières défilent à nouveau." },
+        { titre: 'Réunir deux passions', texte: "Restait à relier la pêche et la table. Les premiers essais de fumage sont ratés — trop salés, trop fumés, trop pressés. Il a fallu des dizaines de fournées pour comprendre que l'essentiel se joue dans l'attente." },
+        { titre: 'Le fumoir des Acacias', texte: "Aujourd'hui, un petit atelier au chemin des Acacias, quatre recettes, des quantités volontairement limitées, et des clients qui viennent chercher leur commande en personne. C'est très bien comme ça." }
+      ],
+
+      events: evs.map((e, i) => Object.assign({}, e, { open: this.openEvent(i), photoSrc: e.photo, tag: e.principal ? 'Stand principal' : 'Prochaine date' })),
+      eventsHome: evs.slice(0, 3).map((e, i) => ({ date: e.date, nom: e.nom, lieu: e.lieu, open: this.openEvent(i) })),
+      evenement: Object.assign({}, evs[s.eventId], { photoSrc: evs[s.eventId].photo }),
+      isEvent: s.page === 'event',
+      isSelf: s.page === 'self',
+      goSelf: this.go('self'),
+      selfSteps: [
+        { n: '01', titre: 'Venez quand vous voulez', texte: "Le frigo est devant l'atelier, accessible en continu, tous les jours. Aucun horaire, aucun rendez-vous." },
+        { n: '02', titre: 'Choisissez votre plaquette', texte: "Les quatre recettes y sont selon les fournées, tranchées et sous vide, avec le poids et le prix indiqués sur chaque étiquette." },
+        { n: '03', titre: 'Réglez sur place', texte: "Espèces dans la caisse, ou Twint avec le code affiché. Le compte est basé sur la confiance, et ça fonctionne très bien." },
+        { n: '04', titre: 'Une question, un filet entier ?', texte: "Appelez-nous au 079 504 59 80 ou passez par la page commande : nous préparons et vous prévenons dès que c'est prêt." }
+      ],
+      selfStock: [
+        { nom: 'Original', detail: 'Plaquette 200 g / 400 g' },
+        { nom: 'Absinthe', detail: 'Plaquette 200 g' },
+        { nom: 'Bio', detail: 'Plaquette 200 g, selon fournée' },
+        { nom: 'Label', detail: 'Saisonnier, fin d\'année' },
+        { nom: 'Filets entiers', detail: 'Sur commande uniquement' }
+      ],
+
+      pointsVente: [
+        { lieu: 'Fleurier', nom: 'Atelier des Acacias', type: 'Vente directe, sur rendez-vous' },
+        { lieu: 'Fleurier', nom: 'Épicerie du Val', type: 'Plaquettes tranchées' },
+        { lieu: 'Couvet', nom: 'Boucherie du Vallon', type: 'Plaquettes et filets' },
+        { lieu: 'Neuchâtel', nom: 'Cave & Terroir', type: 'Plaquettes, coffrets de fête' },
+        { lieu: 'Môtiers', nom: 'Restaurant de l\'Absinthe', type: 'Carte du restaurant' },
+        { lieu: 'Travers', nom: 'Hôtel du Pont', type: 'Carte du restaurant' }
+      ],
+
+      formats: ['Plaquette tranchée env. 100 g', 'Plaquette tranchée env. 200 g', 'Plaquette tranchée env. 300 g', 'Demi-filet sur peau', 'Filet entier sur peau'],
+      lieux: ['Fleurier — Chemin des Acacias 10 (self-service 7j/7)', 'Bôle — point de retrait', 'À convenir par téléphone'],
+      resaLines: p.map((x, i) => ({
+        nom: x.nom, eyebrow: x.eyebrow, color: x.color, qte: s.qte[i], format: s.fmt[i],
+        border: s.qte[i] > 0 ? x.color : 'rgba(20,23,19,.14)',
+        inc: bump(i, 1), dec: bump(i, -1),
+        setFormat: (e) => { const f = this.state.fmt.slice(); f[i] = e.target.value; this.setState({ fmt: f }); }
+      })),
+      resaSummary: summary,
+      resaEmpty: summary.length === 0,
+      resaRetrait: 'Retrait : ' + (s.form.date || 'date à convenir') + ' — ' + s.form.lieu,
+      resaContact: s.form.nom ? s.form.nom + (s.form.tel ? ' · ' + s.form.tel : '') : 'Vos coordonnées restent à compléter',
+      mailtoHref: mailto || '#',
+      mailtoOpacity: mailto ? 1 : 0.45,
+
+      form: s.form,
+      setDate: set('date'), setLieu: set('lieu'), setNom: set('nom'), setTel: set('tel'), setNote: set('note'),
+
+      contact: s.contact,
+      setContactNom: setC('nom'), setContactMsg: setC('msg'),
+      contactMailto: 'mailto:info@saumonfumedesacacias.ch?subject=' + encodeURIComponent('Question — site web') +
+        '&body=' + encodeURIComponent('Bonjour,\n\n' + (s.contact.msg || '') + '\n\n' + (s.contact.nom || ''))
+    };
+  }
+}
+</script>
+</body>
+</html>
