@@ -170,7 +170,7 @@
         <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
           <a href="#" onClick="{{ goProduits }}" style="display:flex;flex-direction:column;gap:18px;color:#141713;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 22%">
             <div style="overflow:hidden;background:#E6E1D6;border-radius:6px">
-              <img src="{{ p.labelSrc }}" alt="Étiquette {{ p.nom }}" style="width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+              <img src="{{ p.labelSrc }}" alt="Plaquette de saumon fumé {{ p.nom }}" style="width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             </div>
             <div>
               <p style="font-size:.64rem;font-weight:700;line-height:1;letter-spacing:.2em;text-transform:uppercase;margin:0 0 10px;color:{{ p.color }}">{{ p.eyebrow }}</p>
@@ -278,7 +278,7 @@
       <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
         <article style="display:flex;flex-wrap:wrap;gap:clamp(26px,4vw,64px);align-items:flex-start;animation:rise 1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% cover 24%">
           <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:clamp(10px,1.2vw,16px)">
-            <img src="{{ p.labelSrc }}" alt="Étiquette {{ p.nom }}" style="width:100%;height:auto;border-radius:6px" />
+            <img src="{{ p.labelSrc }}" alt="Plaquette de saumon fumé {{ p.nom }}" loading="lazy" style="width:100%;height:auto;border-radius:6px;background:#FFFFFF" />
           </div>
           <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:18px">
             <p style="font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:0;color:{{ p.color }}">{{ p.eyebrow }}</p>
@@ -691,6 +691,7 @@
           <div style="display:flex;flex-direction:column;gap:10px">
             <sc-for list="{{ resaLines }}" as="l" hint-placeholder-count="4">
               <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#FDFBF6;border:1px solid {{ l.border }};border-radius:6px;padding:clamp(14px,1.8vw,20px);transition:border-color .3s">
+                <img src="{{ l.etiquette }}" alt="Étiquette {{ l.nom }}" loading="lazy" style="flex:0 0 auto;width:clamp(64px,8vw,88px);height:auto;border-radius:4px" />
                 <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:5px">
                   <span style="font-size:clamp(1.02rem,1.4vw,1.18rem);font-weight:800;letter-spacing:-.032em;color:#141713">{{ l.nom }}</span>
                   <span style="font-size:.84rem;font-weight:500;color:{{ l.color }}">{{ l.eyebrow }}</span>
@@ -920,7 +921,7 @@ class Component extends DCLogic {
     return [
       {
         nom: 'Original', eyebrow: 'Le classique', color: '#1F6F62',
-        label: 'uploads/Original.jpg', photo: 'img/tranchage1.webp',
+        label: 'img/plaquette-original.webp', photo: 'img/tranchage1.webp',
         photoAlt: 'Tranchage du saumon fumé Original',
         court: "Sel, fumée, patience. La recette de la maison, sans détour.",
         long: "Notre première recette et toujours la plus demandée. Filet de saumon paré à la main, salé au sel de Guérande, puis fumé à froid plusieurs heures. Rien d'autre.",
@@ -930,7 +931,7 @@ class Component extends DCLogic {
       },
       {
         nom: 'Absinthe', eyebrow: 'Le terroir', color: '#5B7A2E',
-        label: 'uploads/Absinthe.jpg', photo: 'img/absinthe.webp',
+        label: 'img/plaquette-absinthe.webp', photo: 'img/absinthe.webp',
         photoAlt: "Absinthe versée sur le filet de saumon",
         court: "Arrosé d'absinthe du Val-de-Travers avant le fumage.",
         long: "Une signature locale : le filet est arrosé d'absinthe distillée dans la vallée avant de partir au fumoir. L'anis ne couvre pas le poisson, il l'allonge — une amertume fraîche en fin de bouche.",
@@ -940,7 +941,7 @@ class Component extends DCLogic {
       },
       {
         nom: 'Bio', eyebrow: "L'exigeant", color: '#1F6F62',
-        label: 'uploads/Bio.jpg', photo: 'img/salage.webp',
+        label: 'img/plaquette-bio.webp', photo: 'img/salage.webp',
         photoAlt: 'Salage au sel de Guérande du filet bio',
         court: "Élevage biologique certifié, même geste, chair plus ferme.",
         long: "Issu d'élevages biologiques certifiés : densité réduite, alimentation contrôlée, croissance plus lente. La chair est plus ferme et le gras mieux réparti, ce qui change la tenue à la tranche.",
@@ -950,7 +951,7 @@ class Component extends DCLogic {
       },
       {
         nom: 'Label', eyebrow: "L'exception", color: '#8A2C33',
-        label: 'uploads/Label.jpg', photo: 'img/sel.webp',
+        label: 'img/plaquette-label.webp', photo: 'img/sel.webp',
         photoAlt: 'Le sel de salage, premier ingrédient',
         court: "Notre sélection de fête, en très petites quantités.",
         long: "Saumon d'Écosse Label Rouge, filets choisis un par un. Même salage et même fumage que nos autres saumons.",
@@ -1536,7 +1537,7 @@ class Component extends DCLogic {
       formats: ['Plaquette tranchée env. 100 g', 'Plaquette tranchée env. 200 g', 'Plaquette tranchée env. 300 g', 'Demi-filet sur peau', 'Filet entier sur peau'],
       lieux: ['Fleurier — Chemin des Acacias 10 (self-service 7j/7)', 'Bôle — point de retrait', 'À convenir par téléphone'],
       resaLines: p.map((x, i) => ({
-        nom: x.nom, eyebrow: x.eyebrow, color: x.color, qte: s.qte[i], format: s.fmt[i],
+        nom: x.nom, eyebrow: x.eyebrow, color: x.color, qte: s.qte[i], format: s.fmt[i], etiquette: 'img/etiquette-' + x.nom.toLowerCase() + '.webp',
         prixKg: x.prix,
         estim: this.estimate(i).chf != null ? 'Plaquette : ' + this.fmtChf(this.estimate(i).chf) : 'Prix à la pesée',
         border: s.qte[i] > 0 ? x.color : 'rgba(20,23,19,.14)',
