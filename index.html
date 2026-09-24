@@ -28,6 +28,7 @@
   ::selection { background: #C3A15A; color: #141713; }
   @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes heroZoom { from { transform: scale(1.06); opacity: .6; } to { transform: scale(1); opacity: 1; } }
   @keyframes drift { from { transform: scale(1.03); } to { transform: scale(1.11) translateY(-1.4%); } }
 </style>
 </helmet>
@@ -271,6 +272,7 @@
     </div>
   </section>
 
+
   <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,120px)">
     <div style="max-width:1340px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(44px,6.5vw,108px)">
       <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
@@ -307,16 +309,19 @@
 <!-- ════════ SAVOIR-FAIRE ════════ -->
 <sc-if value="{{ isSavoir }}">
 <main>
-  <section style="padding:0 clamp(10px,2.4vw,30px)">
-    <div style="position:relative;max-width:1400px;margin:0 auto;height:clamp(340px,52vh,560px);overflow:hidden;border-radius:10px;background:#141713">
-      <img src="img/fumage2.webp" alt="Filets suspendus dans la fumée froide" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%" />
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.36),rgba(20,23,19,.74))"></div>
-      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(24px,5vw,56px)">
-        <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#E3C889;margin:0 0 18px;animation:rise .9s both">Notre savoir-faire</p>
-        <h1 style="font-size:clamp(2rem,5.4vw,4.2rem);font-weight:800;line-height:1.04;letter-spacing:-.048em;color:#FFFFFF;margin:0;max-width:22ch;animation:rise 1.1s .1s both">Six étapes, et beaucoup de patience</h1>
-      </div>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Notre savoir-faire</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0;color:#141713;max-width:20ch;animation:rise 1s .08s both">Six étapes, et beaucoup de patience</h1>
     </div>
   </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <img src="img/fumage2.webp" alt="Filets suspendus dans la fumée froide" style="width:100%;aspect-ratio:16/9;max-height:620px;object-fit:cover;object-position:center 40%;border-radius:8px;animation:rise 1s both" />
+    </div>
+  </section>
+
 
   <section style="padding:clamp(48px,7vw,110px) clamp(20px,5vw,60px) 0">
     <div style="max-width:68ch;margin:0 auto">
@@ -347,24 +352,24 @@
 <sc-if value="{{ isHistoire }}">
 <section>
   <div>
-  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(28px,3.6vw,50px)">
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
     <div style="max-width:1340px;margin:0 auto">
-      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px">Notre histoire</p>
-      <h1 style="font-size:clamp(2rem,4.6vw,3.6rem);font-weight:800;line-height:1.06;letter-spacing:-.048em;margin:0;color:#141713;max-width:22ch;animation:rise 1s both">Claude, pêcheur à la mouche et gastronome.</h1>
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Notre histoire</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0;color:#141713;max-width:20ch;animation:rise 1s .08s both">Claude, pêcheur à la mouche et gastronome.</h1>
     </div>
   </section>
 
-  <section style="padding:0 clamp(20px,5vw,60px) clamp(44px,6vw,92px)">
-    <div style="max-width:1340px;margin:0 auto">
-      <img src="img/claude-pecheur.webp" alt="Claude, pêcheur à la mouche" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 35%;border-radius:8px;animation:rise 1s both" />
-    </div>
-  </section>
+
 
   <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
     <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(30px,6vw,92px);align-items:flex-start">
-      <div style="flex:1 1 250px">
+      <div style="flex:1 1 400px">
         <p style="font-size:.68rem;font-weight:700;line-height:1.6;letter-spacing:.18em;text-transform:uppercase;color:#12554F;margin:0 0 14px">Fleurier, Val-de-Travers</p>
-        <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0;max-width:34ch">Fondateur de Saumon Fumé des Acacias. Pêcheur à la mouche depuis l'enfance, voyageur, cuisinier amateur.</p>
+        <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0;max-width:34ch">Fondateur de Saumon Fumé des Acacias, aujourd'hui avec sa femme Catherine. Pêcheur à la mouche depuis l'enfance, voyageur, cuisinier amateur.</p>
+        <div style="display:flex;flex-direction:column;gap:clamp(12px,1.6vw,20px);margin-top:clamp(22px,3vw,36px);max-width:520px">
+          <img src="img/claude-riviere.webp" alt="Claude relâche un saumon dans la rivière" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 40%;border-radius:6px" />
+          <img src="img/claude-pecheur.webp" alt="Claude, pêcheur à la mouche" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 45%;border-radius:6px" />
+        </div>
       </div>
       <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:clamp(26px,3.4vw,42px)">
         <sc-for list="{{ storyBlocks }}" as="b" hint-placeholder-count="4">
@@ -405,6 +410,7 @@
       <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Quatre façons de servir le saumon fumé, de l'apéritif improvisé au plat de fête. Rien de compliqué : le produit fait le travail.</p>
     </div>
   </section>
+
 
   <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
     <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(18px,2.4vw,30px)">
@@ -488,10 +494,11 @@
   <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
     <div style="max-width:1340px;margin:0 auto">
       <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Nos événements</p>
-      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Le prochain rendez-vous.</h1>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Les prochains rendez-vous.</h1>
       <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Retrouvez-nous au Marché de Noël des Acacias : stand principal et réception des commandes de Noël.</p>
     </div>
   </section>
+
 
   <section style="padding:0 clamp(20px,5vw,60px) clamp(48px,7vw,104px)">
     <div style="max-width:1340px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(12px,1.6vw,20px)">
@@ -539,17 +546,20 @@
 <!-- ════════ SELF-SERVICE ════════ -->
 <sc-if value="{{ isSelf }}">
 <main>
-  <section style="padding:0 clamp(10px,2.4vw,30px)">
-    <div style="position:relative;max-width:1400px;margin:0 auto;height:clamp(320px,50vh,540px);overflow:hidden;border-radius:10px;background:#141713">
-      <img src="img/fumage5.webp" alt="Le fumoir des Acacias à Fleurier" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%" />
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,19,.32),rgba(20,23,19,.8))"></div>
-      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(24px,5vw,56px)">
-        <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#E3C889;margin:0 0 18px;animation:rise .9s both">Notre self-service · 7j/7</p>
-        <h1 style="font-size:clamp(2rem,5.4vw,4.2rem);font-weight:800;line-height:1.04;letter-spacing:-.048em;color:#FFFFFF;margin:0;max-width:20ch;animation:rise 1.1s .1s both">Servez-vous directement au fumoir.</h1>
-        <p style="font-size:clamp(1rem,1.5vw,1.22rem);font-weight:500;line-height:1.55;color:#FFFFFF;margin:16px 0 0;animation:rise 1.1s .22s both">Chemin des Acacias 10, 2114 Fleurier</p>
-      </div>
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Notre self-service · 7j/7</p>
+      <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Servez-vous directement au fumoir.</h1>
+      <p style="font-size:clamp(1.04rem,1.3vw,1.18rem);font-weight:400;line-height:1.75;color:#141713;margin:0;max-width:58ch;animation:rise .9s .16s both">Chemin des Acacias 10, 2114 Fleurier</p>
     </div>
   </section>
+
+  <section style="padding:0 clamp(20px,5vw,60px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <img src="img/fumage5.webp" alt="Le fumoir des Acacias à Fleurier" style="width:100%;aspect-ratio:16/9;max-height:620px;object-fit:cover;object-position:center 45%;border-radius:8px;animation:rise 1s both" />
+    </div>
+  </section>
+
 
   <section style="padding:clamp(48px,7vw,110px) clamp(20px,5vw,60px) 0">
     <div style="max-width:68ch;margin:0 auto">
@@ -663,7 +673,7 @@
 <!-- ════════ RÉSERVATION ════════ -->
 <sc-if value="{{ isResa }}">
 <main>
-  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(28px,3.6vw,48px)">
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
     <div style="max-width:1340px;margin:0 auto">
       <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Commande</p>
       <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0 0 24px;color:#141713;max-width:20ch;animation:rise 1s .08s both">Commandez<br />votre saumon.</h1>
@@ -671,18 +681,21 @@
     </div>
   </section>
 
+
   <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
     <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(24px,3.4vw,52px);align-items:flex-start">
       <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
         <div>
           <p style="font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#A8742F;margin:0 0 16px">1 — Vos saumons</p>
-          <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0 0 14px;max-width:58ch">Tous nos saumons sont vendus au poids, au prix indiqué sur chaque produit. Les plaquettes sont découpées à la main : le poids annoncé est approximatif (une plaquette de 200 g pèse en général entre 180 et 220 g). Le prix final est calculé au poids réel, à la pesée.</p>
+          <p style="font-size:.98rem;font-weight:400;line-height:1.7;color:#141713;margin:0 0 14px;max-width:58ch">Prix au kilo, facturé au poids réel. Plaquettes découpées à la main : poids approximatif.</p>
           <div style="display:flex;flex-direction:column;gap:10px">
             <sc-for list="{{ resaLines }}" as="l" hint-placeholder-count="4">
               <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#FDFBF6;border:1px solid {{ l.border }};border-radius:6px;padding:clamp(14px,1.8vw,20px);transition:border-color .3s">
                 <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:5px">
                   <span style="font-size:clamp(1.02rem,1.4vw,1.18rem);font-weight:800;letter-spacing:-.032em;color:#141713">{{ l.nom }}</span>
                   <span style="font-size:.84rem;font-weight:500;color:{{ l.color }}">{{ l.eyebrow }}</span>
+                  <span style="font-size:.9rem;font-weight:700;color:#141713">{{ l.prixKg }}</span>
+                  <span style="font-size:.84rem;font-weight:400;color:#141713">{{ l.estim }}</span>
                 </div>
                 <select value="{{ l.format }}" onChange="{{ l.setFormat }}" aria-label="Format pour {{ l.nom }}" style="flex:0 1 200px;background:#F4F1EC;border:1px solid rgba(20,23,19,.24);padding:13px 12px;font-size:.92rem;font-weight:400;min-height:44px;border-radius:4px;color:#141713">
                   <sc-for list="{{ formats }}" as="f" hint-placeholder-count="3">
@@ -750,11 +763,20 @@
           </sc-if>
           <sc-for list="{{ resaSummary }}" as="s" hint-placeholder-count="0">
             <div style="display:flex;justify-content:space-between;gap:14px">
-              <span style="font-size:.98rem;font-weight:500;line-height:1.5;color:#FFFFFF">{{ s.label }}</span>
-              <span style="font-size:.98rem;font-weight:700;color:#E3C889;white-space:nowrap">× {{ s.qte }}</span>
+              <span style="font-size:.98rem;font-weight:500;line-height:1.5;color:#FFFFFF">{{ s.label }} × {{ s.qte }}</span>
+              <span style="font-size:.98rem;font-weight:700;color:#E3C889;white-space:nowrap">{{ s.estim }}</span>
             </div>
           </sc-for>
         </div>
+        <sc-if value="{{ resaHasTotal }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:18px">
+            <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline">
+              <span style="font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#FFFFFF">Estimation</span>
+              <span style="font-size:1.3rem;font-weight:800;color:#E3C889;white-space:nowrap">{{ resaTotal }}</span>
+            </div>
+            <span style="font-size:.84rem;font-weight:300;line-height:1.5;color:#FFFFFF">{{ resaTotalNote }}</span>
+          </div>
+        </sc-if>
         <div style="display:flex;flex-direction:column;gap:7px">
           <span style="font-size:.95rem;font-weight:400;color:#FFFFFF">{{ resaRetrait }}</span>
           <span style="font-size:.95rem;font-weight:400;color:#FFFFFF">{{ resaContact }}</span>
@@ -771,12 +793,13 @@
 <!-- ════════ CONTACT ════════ -->
 <sc-if value="{{ isContact }}">
 <main>
-  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(28px,3.6vw,48px)">
+  <section style="padding:clamp(44px,6vw,90px) clamp(20px,5vw,60px) clamp(30px,4vw,56px)">
     <div style="max-width:1340px;margin:0 auto">
       <p style="font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#A8742F;margin:0 0 22px;animation:rise .8s both">Contact</p>
       <h1 style="font-size:clamp(2.1rem,5.4vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.048em;margin:0;color:#141713;max-width:20ch;animation:rise 1s .08s both">Écrivez-nous,<br />ou passez.</h1>
     </div>
   </section>
+
 
   <section style="padding:0 clamp(20px,5vw,60px) clamp(56px,8vw,130px)">
     <div style="max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,76px);align-items:flex-start">
@@ -1361,12 +1384,23 @@ class Component extends DCLogic {
   }
 
 
+  estimate(i) {
+    const p = this.products()[i];
+    const kg = parseFloat(p.prix.replace(/[^0-9.]/g, ''));
+    const m = /(\d+) g/.exec(this.state.fmt[i]);
+    return { kg: kg, chf: m ? kg * parseInt(m[1], 10) / 1000 : null };
+  }
+
+  fmtChf(v) {
+    return 'env. CHF ' + (Math.round(v * 2) / 2).toFixed(2).replace('.00', '.–');
+  }
+
   buildMailto() {
     const p = this.products();
     const s = this.state;
     const lignes = [];
     for (let i = 0; i < 4; i++) {
-      if (s.qte[i] > 0) lignes.push('- ' + p[i].nom + ' — ' + s.fmt[i] + ' × ' + s.qte[i]);
+      if (s.qte[i] > 0) { const e = this.estimate(i); lignes.push('- ' + p[i].nom + ' — ' + s.fmt[i] + ' × ' + s.qte[i] + (e.chf != null ? ' (' + this.fmtChf(e.chf * s.qte[i]) + ')' : ' (prix à la pesée, CHF ' + e.kg + '.– / kg)')); }
     }
     if (!lignes.length) return null;
     const body = [
@@ -1405,8 +1439,13 @@ class Component extends DCLogic {
     };
     const mailto = this.buildMailto();
     const summary = [];
+    let total = 0, weighed = false;
     for (let i = 0; i < 4; i++) {
-      if (s.qte[i] > 0) summary.push({ label: p[i].nom + ' — ' + s.fmt[i], qte: s.qte[i] });
+      if (s.qte[i] > 0) {
+        const e = this.estimate(i);
+        summary.push({ label: p[i].nom + ' — ' + s.fmt[i], qte: s.qte[i], estim: e.chf != null ? this.fmtChf(e.chf * s.qte[i]) : 'à la pesée' });
+        if (e.chf != null) total += e.chf * s.qte[i]; else weighed = true;
+      }
     }
 
     const pages = [
@@ -1463,7 +1502,7 @@ class Component extends DCLogic {
         { num: '06', photoSrc: 'img/tranchage2.webp', titre: 'Préparation finale', texte: "Tranchage au couteau, mise sous vide en plaquette ou conditionnement du filet entier, étiquetage à la main.", photo: 'uploads/Saumon_2.jpg', alt: 'Tranchage et conditionnement' }
       ],
 
-      storyBlocks: [{"titre":"Depuis l'enfance","texte":"L'histoire de Saumon Fumé des Acacias réunit deux passions de Claude : la pêche à la mouche et la gastronomie. À 5 ans, il reçoit sa première canne à pêche au bord du lac Léman. Il grandit à Fleurier, dans une maison qui longe le Fleurier, la rivière du village. Truites attrapées à la main, puis premier permis et premier vivier en bois, construit avec son père."},{"titre":"La mouche sèche","texte":"Après le ver, le vairon et la cuillère, vient la pêche à la mouche. Claude choisit la mouche sèche, celle qui flotte et descend avec le courant. Voir une truite la prendre en surface reste pour lui le plus beau mode de pêche."},{"titre":"Les voyages","texte":"Avec son ami Raoul, il part pêcher l'ombre en Suède, sur la Giman et l'Idjoström. Quelques mois après leur retour, Raoul meurt, piqué par un essaim de guêpes. Après une longue pause, Claude repart, avec d'autres pêcheurs, et parcourt le monde à la recherche de nouvelles rivières."},{"titre":"Salmo salar","texte":"C'est ainsi qu'il découvre le saumon, qu'il pêche et remet vivant dans sa rivière. Il veut tout en connaître : mouches, cannes, lancers Spey et double Spey, mais aussi sa cuisine. Gastronome et cuisinier amateur, il multiplie les essais de fumage. Saumon Fumé des Acacias est né."}],
+      storyBlocks: [{"titre":"Depuis l'enfance","texte":"L'histoire de Saumon Fumé des Acacias réunit deux passions de Claude : la pêche à la mouche et la gastronomie. À 5 ans, il reçoit sa première canne à pêche au bord du lac Léman. Il grandit à Fleurier, dans une maison qui longe le Fleurier, la rivière du village. Truites attrapées à la main, puis premier permis et premier vivier en bois, construit avec son père."},{"titre":"La mouche sèche","texte":"Après le ver, le vairon et la cuillère, vient la pêche à la mouche. Claude choisit la mouche sèche, celle qui flotte et descend avec le courant. Voir une truite la prendre en surface reste pour lui le plus beau mode de pêche."},{"titre":"Les voyages","texte":"Avec son ami Raoul, il part pêcher l'ombre en Suède, sur la Giman et l'Idjoström. Quelques mois après leur retour, Raoul meurt, piqué par un essaim de guêpes. Après une longue pause, Claude repart, avec d'autres pêcheurs, et parcourt le monde à la recherche de nouvelles rivières."},{"titre":"Salmo salar","texte":"C'est ainsi qu'il découvre le saumon, qu'il pêche et remet vivant dans sa rivière. Il veut tout en connaître : mouches, cannes, lancers Spey et double Spey, mais aussi sa cuisine. Gastronome et cuisinier amateur, il multiplie les essais de fumage. Saumon Fumé des Acacias est né."},{"titre":"Aujourd'hui, en équipe","texte":"Aujourd'hui, Claude fait équipe avec sa femme, Catherine. Ensemble, ils préparent le saumon fumé des Acacias à Fleurier."}],
 
       events: evs.map((e, i) => Object.assign({}, e, { open: this.openEvent(i), photoSrc: e.photo, tag: e.principal ? 'Stand principal' : 'Prochaine date' })),
       eventsHome: evs.slice(0, 3).map((e, i) => ({ date: e.date, nom: e.nom, lieu: e.lieu, open: this.openEvent(i) })),
@@ -1498,12 +1537,17 @@ class Component extends DCLogic {
       lieux: ['Fleurier — Chemin des Acacias 10 (self-service 7j/7)', 'Bôle — point de retrait', 'À convenir par téléphone'],
       resaLines: p.map((x, i) => ({
         nom: x.nom, eyebrow: x.eyebrow, color: x.color, qte: s.qte[i], format: s.fmt[i],
+        prixKg: x.prix,
+        estim: this.estimate(i).chf != null ? 'Plaquette : ' + this.fmtChf(this.estimate(i).chf) : 'Prix à la pesée',
         border: s.qte[i] > 0 ? x.color : 'rgba(20,23,19,.14)',
         inc: bump(i, 1), dec: bump(i, -1),
         setFormat: (e) => { const f = this.state.fmt.slice(); f[i] = e.target.value; this.setState({ fmt: f }); }
       })),
       resaSummary: summary,
       resaEmpty: summary.length === 0,
+      resaHasTotal: total > 0,
+      resaTotal: this.fmtChf(total),
+      resaTotalNote: 'Prix indicatif, calculé au poids réel à la pesée.' + (weighed ? ' Filets en plus, selon leur poids.' : ''),
       resaRetrait: 'Retrait : ' + (s.form.date || 'date à convenir') + ' — ' + s.form.lieu,
       resaContact: s.form.nom ? s.form.nom + (s.form.tel ? ' · ' + s.form.tel : '') : 'Vos coordonnées restent à compléter',
       mailtoHref: mailto || '#',
